@@ -1,10 +1,7 @@
 // Graphical variables
 @import "config/variables";
-@import "config/bootstrap_variables";
 
 // External libraries
-@import "bootstrap-sprockets";
-@import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
@@ -13,3 +10,8 @@
 @import "components/index";
 @import "pages/index";
 @import "vendor/index";
+
+// Materialize
+@import "materialize/components/color";
+@import "materialize/extras/nouislider";
+@import "materialize";
