@@ -131,12 +131,12 @@ class GetFlightsService
       return_flight_duration = 0
 
       depart_segments_info.each do | segment_result |
-        flights_info[:flight_values][0] =  processing(segment_result, depart_segment_number)
+        flights_info[:flight_values][0] <<  processing(segment_result, depart_segment_number)
         depart_flight_duration += segment_result["ElapsedTime"]
       end
 
       return_segments_info.each do | segment_result |
-        flights_info[:flight_values][1] = processing(segment_result, return_segment_number)
+        flights_info[:flight_values][1] << processing(segment_result, return_segment_number)
         return_flight_duration += segment_result["ElapsedTime"]
       end
 
