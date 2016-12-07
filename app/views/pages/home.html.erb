@@ -1,19 +1,27 @@
-<div class="container">
-  <div class="row">
-    <form class="col s12">
-      <div class="row">
-        <div class="input-field col s6">
-          <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-          <label for="first_name">First Name</label>
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <form class="col s12">
+        <div class="row">
+          <div class="input-field col s6">
+          <!-- définir la route exact et le type de méthode get/post -->
+            <%= form_tag(flights_path, method: :get) do %>
+            <div>
+              <%= number_field(:duration, nil, in: 1..30, step: 1, placeholder: "Durée du séjour en jours", class: "validate") %>
+            </div>
+            <div>
+              <%= select_tag(:periode, options_for_select(@periode, disabled: "Choisissez votre période"), multiple: true) %>
+            <div>
+              <%= text_field_tag(:departure, nil, placeholder:"Lieu de départ", class: "validate") %>
+            </div>
+            <div>
+              <%= text_field_tag(:destination, nil, placeholder:"Destination", class: "validate") %>
+            </div>
+            <%= submit_tag("Rechercher", class: "btn waves-effect waves-light ") %>
+            <% end %>
+          </div>
         </div>
-        <div class="input-field col s6">
-          <input id="last_name" type="text" class="validate">
-          <label for="last_name">Last Name</label>
-        </div>
-      </div>
-       <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-          <i class="material-icons right"></i>
-      </button>
-    </form>
+      </form>
+    </div>
   </div>
 </div>
