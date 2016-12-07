@@ -7,5 +7,6 @@ class Flight
                 :arrival_datetime ,
                 :arrival_timezone,
                 :flight_number,
-                :marketing_airline
+                :marketing_airline,
+                :step
 end

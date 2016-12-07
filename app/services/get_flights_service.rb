@@ -33,8 +33,8 @@ class GetFlightsService
 
 
 
-  def processing(array, segment_result, stop_number)
-    array << {
+  def processing(segment_result, stop_number)
+    {
        start_segment_departure_airport: segment_result["DepartureAirport"]["LocationCode"],
        start_segment_departure_datetime: segment_result["DepartureDateTime"],
        start_segment_departure_timezone: segment_result["DepartureTimeZone"],
@@ -57,6 +57,54 @@ class GetFlightsService
     duration_stop
   end
 
+  def sort_by_price(results)
+    results.sort_by { |record| record[:flight_values][2].last[:price] }
+  end
+
+  def top5(results)
+    results[0..4]
+  end
+
+   def trip_generator(result)
+    trip = {}
+    trip[:depart_flights] = []
+    trip[:return_flights] = []
+    trip[:details] = {}
+      result[:flight_values][0].each_with_index do |flight, index|
+          flights_object_depart = Flight.new(departure_airport: flight[:start_segment_departure_airport],
+          departure_datetime: flight[:start_segment_departure_datetime],
+          departure_timezone: flight[:start_segment_departure_timezone],
+          arrival_airport: flight[:start_segment_arrival_airport],
+          arrival_datetime: flight[:start_segment_arrival_datetime],
+          arrival_timezone: flight[:start_segment_arrival_timezone],
+          flight_number: flight[:start_segment_flight_number],
+          marketing_airline: flight[:start_segment_marketing_airline],
+          step: index
+          )
+
+
+        trip[:depart_flights] << flights_object_depart
+      end
+      result[:flight_values][1].each_with_index do |flight, index|
+         flights_object_return = Flight.new(departure_airport: flight[:start_segment_departure_airport],
+          departure_datetime: flight[:start_segment_departure_datetime],
+          departure_timezone: flight[:start_segment_departure_timezone],
+          arrival_airport: flight[:start_segment_arrival_airport],
+          arrival_datetime: flight[:start_segment_arrival_datetime],
+          arrival_timezone: flight[:start_segment_arrival_timezone],
+          flight_number: flight[:start_segment_flight_number],
+          marketing_airline: flight[:start_segment_marketing_airline],
+          step: index
+          )
+
+        trip[:return_flights] << flights_object_return
+      end
+      trip[:details] = result[:flight_values][2][0]
+      trip
+    end
+
+
+
 
   def flight_result(results_request)
     raw_results = []
@@ -73,6 +121,9 @@ class GetFlightsService
       flights_info = {}
       flights_info[:flight_id] = i
       flights_info[:flight_values] = []
+      flights_info[:flight_values][0] = []
+      flights_info[:flight_values][1] = []
+      flights_info[:flight_values][2] = []
       depart_segment_results = []
       return_segment_results = []
       price_results = []
@@ -80,12 +131,12 @@ class GetFlightsService
       return_flight_duration = 0
 
       depart_segments_info.each do | segment_result |
-        processing(flights_info[:flight_values], segment_result, depart_segment_number)
+        flights_info[:flight_values][0] =  processing(segment_result, depart_segment_number)
         depart_flight_duration += segment_result["ElapsedTime"]
       end
 
       return_segments_info.each do | segment_result |
-        processing(flights_info[:flight_values], segment_result, return_segment_number)
+        flights_info[:flight_values][1] = processing(segment_result, return_segment_number)
         return_flight_duration += segment_result["ElapsedTime"]
       end
 
@@ -94,15 +145,26 @@ class GetFlightsService
       return_stops_duration = stops_duration_calcul(return_segments_info, return_segment_number)
 
 
-      flights_info[:flight_values] << { price: result["PricedItineraries"][0]["AirItineraryPricingInfo"]["ItinTotalFare"]["TotalFare"]["Amount"],
+      flights_info[:flight_values][2] << { price: result["PricedItineraries"][0]["AirItineraryPricingInfo"]["ItinTotalFare"]["TotalFare"]["Amount"],
         currency: result["PricedItineraries"][0]["AirItineraryPricingInfo"]["ItinTotalFare"]["TotalFare"]["CurrencyCode"],
         start_trip_duration: depart_flight_duration + depart_stops_duration,
         return_trip_duration: return_flight_duration + return_stops_duration
       }
       raw_results << flights_info
     end
-    raw_results
+
+    sorted_results = sort_by_price(raw_results)
+    top5_results = top5(sorted_results)
+    trips = []
+    raise
+    top5_results.each do |result|
+      trips << trip_generator(result)
+    end
+    trips
+
   end
+
+
 end
 
 
