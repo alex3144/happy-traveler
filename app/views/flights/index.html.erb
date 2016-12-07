@@ -1,8 +1,4 @@
-<% @results.each do |result| %>
-  <ul>
-    <li>ID Origin: <%= result["OriginId"] %>,</li>
-    <li>ID Destination : <%= result["DestinationId"] %> </li>
-    <li> Date: <%= result["QuoteDateTime"]%> </li>
-    <li>Price: <%= result["Price"]%> </li>
-  </ul>
-<% end %>
+<% @results["Dates"].each do |result| %>
+<%= result %>
+<% end%>
+

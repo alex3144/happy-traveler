@@ -15,7 +15,6 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'materialize-sass'
-gem 'skyscanner'
 
 group :development, :test do
   gem 'binding_of_caller'
