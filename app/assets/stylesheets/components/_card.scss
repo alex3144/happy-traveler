@@ -1,0 +1,39 @@
+.results_card_container{
+
+}
+
+
+.card_result{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+  text-align: center;
+  background-color: $background-light-grey;
+  border-radius: 5px;
+}
+
+.date_range_graph_field{
+  display:flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 5px;
+  flex: 0 0 65%;
+}
+
+.date_range_graph{
+  align-self: stretch;
+}
+
+.card_result_column2{
+  padding:5px;
+  flex: 0 0 35%;
+}
+
+.flight_price{
+
+}
+
+.flights_durations_table{
+
+}

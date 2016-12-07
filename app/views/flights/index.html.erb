@@ -1,0 +1,73 @@
+
+<div class="container">
+  <div class="banner_destination_picture">
+   <img src="" alt="">
+  </div>
+
+  <div class="inline_search_bar">
+    <div class="inline_search_form">Here is the form</div>
+    <div class="search_btn">Button</div>
+    <div class="slider_price_duration">Slider</div>
+  </div>
+
+
+
+  <div class="results_wrapper">
+  <% @trips.each do |trip|%>
+    <div class="row">
+      <div class="results_card_container col s12 m6">
+        <div class="card_result">
+          <div class="date_range_graph_field">
+            <div class="date_range_graph">
+              <p>here is the graph</p>
+              <p>Mars 2017</p>
+            </div>
+          </div>
+          <div class="card_result_column2">
+            <div class="flight_price">
+            <p><%= trip[:trip_price]%><%= trip[:currency]%></p>
+            </div>
+            <div class="flights_durations_table col s12">
+              <div class="start_flight_duration col s6">
+                <p>Total voyage aller</p>
+                <p><%= trip[:global_start_trip_duration]%></p>
+              </div>
+              <div class="return_flight_duration col s6">
+                <p> Total voyage retour</p>
+                <p><%= trip[:global_return_trip_duration]%></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flight_details_container col s12 m6">
+      <h3>Vol aller</h3>
+        <div class="flight_card">
+          <table>
+            <tr class="one_flight_table">
+              <td><%= trip[:start_flight].start_date%></td>
+              <td><%= trip[:start_flight].start_place%></td>
+              <td rowspan="2"><%= trip[:start_flight].company%></td>
+              <td rowspan="2"><%= trip[:start_flight].flight_duration%></td>
+            </tr>
+          </table>
+        </div>
+        <h3>Vol retour</h3>
+        <div class="flight_card">
+          <table>
+            <tr class="one_flight_table">
+              <td><%= trip[:return_flight].start_date%></td>
+              <td><%= trip[:return_flight].start_place%></td>
+              <td rowspan="2"><%= trip[:return_flight].company%></td>
+              <td rowspan="2"><%= trip[:return_flight].flight_duration%></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <% end %>
+
+  </div>
+</div>
+
