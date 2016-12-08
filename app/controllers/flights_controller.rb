@@ -24,7 +24,7 @@ private
         start_place:["CDG","DPS","JFK","AMS","LGE"].sample,
         end_place:["CDG","DPS","JFK","AMS","LGE"].sample,
         start_date: DateTime.now + rand(1..10).days,
-        end_date:DateTime.now + rand(1..10).days,
+        end_date:DateTime.now + rand(11..15).days,
         company: ["Air France","Luftansa", "Vueling"].sample,
         flight_duration: [ "6H30" , "1H30", "12H40","7H00" ].sample
       )
@@ -32,8 +32,8 @@ private
       return_flight = Flight.new(
         start_place:["CDG","DPS","JFK","AMS","LGE"].sample,
         end_place:["CDG","DPS","JFK","AMS","LGE"].sample,
-        start_date: DateTime.now + rand(1..10).days,
-        end_date:DateTime.now + rand(1..10).days,
+        start_date: DateTime.now + rand(16..20).days,
+        end_date:DateTime.now + rand(21..30).days,
         company: ["Air France","Luftansa", "Vueling"].sample,
         flight_duration: [ "6H30" , "1H30", "12H40","7H00" ].sample
       )

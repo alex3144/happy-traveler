@@ -1,11 +1,24 @@
-.results_card_container{
+.results_wrapper{
+  display: flex;
+}
+.results_lists{
+  flex: 1;
+  margin-right: 10px;
+}
+.results_details{
+  flex: 1;
+}
 
+
+
+.results_card_container{
 }
 
 
 .card_result{
   display:flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   align-items: center;
   margin-top: 30px;
   text-align: center;
@@ -28,6 +41,9 @@
 .card_result_column2{
   padding:5px;
   flex: 0 0 35%;
+  p {
+    margin: 0;
+  }
 }
 
 .flight_price{
@@ -35,5 +51,66 @@
 }
 
 .flights_durations_table{
+  display: flex;
+  justify-content: space-around;
+}
+
+.flight_details_container{
+  background-color: $background-light-grey;
+}
+
+.flight_card{
+  background-color:$background-silver-grey;
 
 }
+
+.one_trip_table{
+display:block;
+align-content: flex-start;
+}
+
+.flight_row{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px 15px;
+  border-left: 2px solid;
+}
+
+.time{
+  flex:0 0 20%;
+}
+
+.place{
+  flex:0 0 40%;
+}
+
+.company{
+  flex:0 0 20%;
+}
+
+.flight_duration{
+  flex: 0 0 20%;
+}
+
+.stopover_row{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px 15px;
+  border-left: 4px dotted red;
+}
+
+.stopover_draw{
+  flex:0 0 80%;
+}
+
+.stopover_duration{
+  flex:0 0 20%;
+
+}
+
+
+
+
+
