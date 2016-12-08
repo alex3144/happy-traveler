@@ -1,21 +1,53 @@
-<div class="container">
-  <div class="row">
-    <form class="col s12">
-      <div class="row">
-        <div class="input-field col s6">
-          <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-          <label for="first_name">First Name</label>
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <form class="col s12">
+        <div class="col s6">
+          <div class="card-panel blue-text text-darken-2 search_card">
+        <!-- définir la route exact et le type de méthode get/post -->
+            <%= form_tag(flights_path, method: :get) do %>
+              <div class="input-field line_1">
+                <%= number_field(:duration, nil, in: 1..30, step: 1, placeholder: "Durée du séjour en jours", class: "validate") %>
+              </div>
+              <div class="input-field line_2">
+                <%= select_tag(:periode, options_for_select(@periode), multiple: false) %>
+              </div>
+              <div class="input-field line_3">
+                <%= text_field_tag(:departure, nil, placeholder:"Départ", class: "validate") %>
+              </div>
+              <div class="input-field line_4">
+                <%= text_field_tag(:destination, nil, placeholder:"Destination", class: "validate") %>
+              </div>
+              <div>
+                <p>Nombre de passagers</p>
+              </div>
+              <div class="passagers_selection">
+                <div class="input-field passagers_child">
+                  <p>Enfant(s)</p>
+                  <%= select_tag(:passagers_child, options_for_select(@passagers_number), class: "browser-default") %>
+                </div>
+                <div class="input-field passagers_young">
+                  <p>Jeune(s)</p>
+                  <%= select_tag(:passagers_young, options_for_select(@passagers_number), class: "browser-default") %>
+                </div>
+                <div class="input-field passagers_adult">
+                  <p>Adulte(s)</p>
+                  <%= select_tag(:passagers_adult, options_for_select(@passagers_number), class: "browser-default") %>
+                </div>
+
+              </div>
+              <div class="input-field line_5">
+                <%= submit_tag("Rechercher", class: "search_button btn waves-effect waves-light") %>
+              </div>
+            <% end %>
+          </div>
         </div>
-        <div class="input-field col s6">
-          <input id="last_name" type="text" class="validate">
-          <label for="last_name">Last Name</label>
-        </div>
-      </div>
-       <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-          <i class="material-icons right"></i>
-      </button>
-    </form>
+      </form>
+    </div>
   </div>
 </div>
+
+<%= render "cloud", color: "blue" %>
+<%= render "sun" %>
 
 

@@ -1,5 +1,14 @@
 class Flight
   include ActiveModel::Model
-  attr_accessor :start_place , :end_place, :start_date, :end_date, :flight_duration, :company
+
+  attr_accessor :departure_airport,
+                :departure_datetime,
+                :departure_timezone,
+                :arrival_airport,
+                :arrival_datetime ,
+                :arrival_timezone,
+                :flight_number,
+                :marketing_airline,
+                :step
 
 end
