@@ -18,9 +18,7 @@
 
     <%= render 'shared/navbar' %>
 
-    <main>
-      <%= yield %>
-    </main>
+    <%= yield %>
 
     <%= javascript_include_tag 'application' %>
     <%= yield(:after_js) %>
