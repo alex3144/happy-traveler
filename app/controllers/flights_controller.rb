@@ -25,7 +25,6 @@ class FlightsController < ApplicationController
 
     trip_results = ::GetFlightsService.new(search_params).call
     raise
-
   end
 
   private
@@ -53,3 +52,6 @@ class FlightsController < ApplicationController
     month_hash[month]
   end
 end
+
+
+
