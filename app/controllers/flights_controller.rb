@@ -20,8 +20,8 @@ class FlightsController < ApplicationController
       returndate: (start_period.to_date + lengthofstay.to_i).to_s
     }
 
-    trip_results = ::GetFlightsService.new(search_params).call
-    raise
+    @trips_results = ::GetFlightsService.new(search_params).call
+
   end
 
   private

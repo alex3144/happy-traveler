@@ -62,7 +62,7 @@ class GetFlightsService
   end
 
   def top5(results)
-    results[0..4]
+    results[0..9]
   end
 
    def trip_generator(result)
@@ -116,6 +116,7 @@ class GetFlightsService
       return_segments_info = result["PricedItineraries"][0]["AirItinerary"]["OriginDestinationOptions"]["OriginDestinationOption"][1]["FlightSegment"]
       # return_info = result["PricedItineraries"][0]["AirItinerary"]["OriginDestinationOptions"]["OriginDestinationOption"][1]
       return_segment_number = return_segments_info.size
+      itin_fares = result["PricedItineraries"][0]["AirItineraryPricingInfo"]["ItinTotalFare"]
 
       i = results_request.index(result) + 1
       flights_info = {}
@@ -145,7 +146,7 @@ class GetFlightsService
       return_stops_duration = stops_duration_calcul(return_segments_info, return_segment_number)
 
 
-      flights_info[:flight_values][2] << { price: result["PricedItineraries"][0]["AirItineraryPricingInfo"]["ItinTotalFare"]["TotalFare"]["Amount"],
+      flights_info[:flight_values][2] << { price: itin_fares["FareConstruction"]["Amount"].to_f + itin_fares["TotalFare"]["Amount"] + itin_fares["Taxes"]["Tax"][0]["Amount"],
         currency: result["PricedItineraries"][0]["AirItineraryPricingInfo"]["ItinTotalFare"]["TotalFare"]["CurrencyCode"],
         start_trip_duration: depart_flight_duration + depart_stops_duration,
         return_trip_duration: return_flight_duration + return_stops_duration
@@ -156,15 +157,11 @@ class GetFlightsService
     sorted_results = sort_by_price(raw_results)
     top5_results = top5(sorted_results)
     trips = []
-    raise
     top5_results.each do |result|
       trips << trip_generator(result)
     end
     trips
-
   end
-
-
 end
 
 

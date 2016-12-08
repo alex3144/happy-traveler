@@ -1,4 +1,10 @@
-<% @results["Dates"].each do |result| %>
-<%= result %>
+<% @trips_results.each_with_index do |trip, index| %>
+    <h3>Flight <%= index + 1 %></h3>
+    <ul>
+      <li>Depart Flights : <%= trip[:depart_flights] %></li><br>
+      <li>Return Flights : <%= trip[:return_flights] %></li><br>
+      <li>Details : <%= trip[:details] %></li><br>
+    </ul>
+  <hr>
 <% end%>
 
