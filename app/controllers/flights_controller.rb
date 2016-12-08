@@ -25,7 +25,6 @@ class FlightsController < ApplicationController
 
     trip_results = ::GetFlightsService.new(search_params).call
     raise
-
   end
 
   private
