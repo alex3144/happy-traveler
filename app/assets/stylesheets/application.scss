@@ -10,8 +10,12 @@
 @import "components/index";
 @import "pages/index";
 @import "vendor/index";
+@import "components/card";
+@import "components/banner";
+@import "components/inline_search_bar";
+@import "components/customized_NoUiSlider";
 
 // Materialize
+@import "materialize";
 @import "materialize/components/color";
 @import "materialize/extras/nouislider";
-@import "materialize";

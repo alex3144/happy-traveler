@@ -1,5 +1,6 @@
 class Flight
   include ActiveModel::Model
+
   attr_accessor :departure_airport,
                 :departure_datetime,
                 :departure_timezone,
@@ -9,4 +10,5 @@ class Flight
                 :flight_number,
                 :marketing_airline,
                 :step
+
 end
