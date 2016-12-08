@@ -6,9 +6,6 @@ class FlightsController < ApplicationController
   token.access_token
   token.expires_on
 
-  def home
-  end
-
   def index
     # User Params
     start_period = "2017-#{date_params("Janvier")}-01"
