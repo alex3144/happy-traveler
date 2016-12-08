@@ -4,12 +4,51 @@
   </div>
 
   <div class="inline_search_bar">
-    <div class="inline_search_form">Here is the form</div>
-    <div class="search_btn">Button</div>
-    <div class="slider_price_duration">Slider</div>
-  </div>
-
-
+    <div class="inline_search_form">
+      <div class="card-panel blue-text text-darken-2 search_card">
+        <!-- définir la route exact et le type de méthode get/post -->
+        <%= form_tag(flights_path, method: :get) do %>
+        <div class="row">
+        <div class="line1 col s12 "></div>
+          <div class="input-field col m3 s6">
+            <%= number_field(:duration, nil, in: 1..30, step: 1, placeholder: "Durée du séjour en jours", class: "validate") %>
+          </div>
+          <div class="input-field col m3 s6">
+            <%= select_tag(:periode, options_for_select(@periode), multiple: false) %>
+          </div>
+          <div class="input-field col m3 s6">
+            <%= text_field_tag(:departure, nil, placeholder:"Départ", class: "validate") %>
+          </div>
+          <div class="input-field col m3 s6">
+            <%= text_field_tag(:destination, nil, placeholder:"Destination", class: "validate") %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="line2 col s12">
+            <div class="passagers_selection col s6">
+              <div class="input-field passagers_child col s2">
+                <p>Enfant(s)</p>
+                <%= select_tag(:passagers_child, options_for_select(@passagers_number), class: "browser-default") %>
+              </div>
+              <div class="input-field passagers_young col s2">
+                <p>Jeune(s)</p>
+                <%= select_tag(:passagers_young, options_for_select(@passagers_number), class: "browser-default") %>
+              </div>
+              <div class="input-field passagers_adult col s2">
+                <p>Adulte(s)</p>
+                <%= select_tag(:passagers_adult, options_for_select(@passagers_number), class: "browser-default") %>
+              </div>
+            </div>
+            <div class="input-field col s4 offset-s1">
+              <%= submit_tag("Rechercher", class: "search_button btn waves-effect waves-light") %>
+            </div>
+          </div>
+           <div class="slider_price_duration">Slider</div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
 
   <div class="results_wrapper">
     <div class="results_lists">
