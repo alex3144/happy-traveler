@@ -1,22 +1,26 @@
 <div class="wrapper">
   <div class="container">
     <div class="row">
-      <form class="col s12">
+      <div class="col s12">
         <div class="col s6">
-          <div class="card-panel blue-text text-darken-2 search_card">
+          <div class="blue-text text-darken-2 search_card_left">
         <!-- définir la route exact et le type de méthode get/post -->
             <%= form_tag(flights_path, method: :get) do %>
               <div class="input-field line_1">
                 <%= number_field(:duration, nil, in: 1..30, step: 1, placeholder: "Durée du séjour en jours", class: "validate") %>
+                <div class="arrow-search arrow_1 hidden"></div>
               </div>
               <div class="input-field line_2">
                 <%= select_tag(:periode, options_for_select(@periode), multiple: false) %>
+                <div class="arrow-search arrow_2 hidden"></div>
               </div>
               <div class="input-field line_3">
                 <%= text_field_tag(:departure, nil, placeholder:"Départ", class: "validate") %>
+                <div class="arrow-search arrow_3 hidden"></div>
               </div>
               <div class="input-field line_4">
                 <%= text_field_tag(:destination, nil, placeholder:"Destination", class: "validate") %>
+                <div class="arrow-search arrow_4 hidden"></div>
               </div>
               <div>
                 <p>Nombre de passagers</p>
@@ -42,7 +46,12 @@
             <% end %>
           </div>
         </div>
-      </form>
+        <div class="col s6">
+          <div class="blue-text text-darken-2 search_card_right">
+        <!-- définir la route exact et le type de méthode get/post -->
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
