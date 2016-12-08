@@ -32,6 +32,13 @@
   top : 0px;
 }
 
+.arrow_1_target{
+  .collection-item:hover{
+    background-color: $blue-ocean;
+    color: white;
+  }
+}
+
 .search_card_right{
   min-height: 560px;
   padding: 20px;
