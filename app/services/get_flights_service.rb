@@ -1,4 +1,5 @@
 class GetFlightsService
+
   def initialize(search_params)
     @search_params = search_params
   end
@@ -154,8 +155,6 @@ class GetFlightsService
         currency: result["AirItineraryPricingInfo"]["ItinTotalFare"]["TotalFare"]["CurrencyCode"],
         start_trip_duration: Time.at((depart_flight_duration + depart_stops_duration)*60).utc.strftime("%Hh%M"),
         return_trip_duration: Time.at((return_flight_duration + return_stops_duration)*60).utc.strftime("%Hh%M")
-        # start_trip_duration: "#{((depart_flight_duration + depart_stops_duration) / 60) % 60}" + "h" + "#{(depart_flight_duration + depart_stops_duration)% 60}",
-        # return_trip_duration: "#{((return_flight_duration + return_stops_duration) / 60) % 60}" + "h" + "#{(return_flight_duration + return_stops_duration) % 60}"
       }
       raw_results << flights_info
 

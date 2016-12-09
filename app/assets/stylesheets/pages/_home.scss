@@ -6,17 +6,58 @@
   background: #43C6AC; /* fallback for old browsers */
   background: -webkit-linear-gradient(to left, #43C6AC , #191654); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to left, #43C6AC , #191654); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  min-height: 100vh;
+  min-height: 93vh;
   margin: 0;
   padding: 0;
   display: flex;
   align-items: center;
 }
 
-.hidden{
+
+.hidden_animation{
+
   visibility: hidden;
-  opacity: 0;
-  transition: visibility 1s, opacity 0.5s linear;
+}
+
+.hidden{
+  display: none;
+}
+
+.input-field{
+  position: relative;
+}
+
+.arrow-search{
+  height:40px;
+  width:40px;
+  background-color:white;
+  transform: rotate(45deg);
+  position: absolute;
+  right: -70px;
+  top : 0px;
+}
+
+.arrow_1_target{
+  .collection-item:hover{
+    background-color: $blue-ocean;
+    color: white;
+  }
+}
+
+.search_card_right{
+  min-height: 560px;
+  padding: 20px;
+  margin: 0.5rem 0 1rem 0;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.search_card_left{
+  min-height: 560px;
+  padding: 20px;
+  margin: 0.5rem 0 1rem 0;
+  border-radius: 5px;
+  background-color: #fff;
 }
 
 .container{
@@ -51,7 +92,7 @@
 
 .frame {
   position: absolute;
-  top: 0;
+  top: 70px;
   bottom: 0;
   right: 0;
   left: 0;
