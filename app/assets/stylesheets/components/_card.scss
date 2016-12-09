@@ -1,3 +1,7 @@
+.title_flight{
+  text-align: center;
+}
+
 .results_wrapper{
   display: flex;
 }
@@ -23,11 +27,16 @@
   justify-content: space-between;
   flex-wrap: wrap;
   align-items: center;
-  margin-top: 30px;
+  margin-bottom: 30px;
   text-align: center;
   background-color: $background-light-grey;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.card_result.selected{
+  background-color: $background-silver-grey;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .date_range_graph_field{

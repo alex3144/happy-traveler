@@ -111,6 +111,7 @@
       });
 
       // Flight results
+      $('.flight_card').first().addClass('selected');
       var trips_results_details = [];
       <% @trips_results.each_with_index do |result_details, index| %>
         var result_details = "<%= j render 'result_details', result_details: result_details %>"
@@ -120,6 +121,8 @@
       // Register click on card result
       $('.card_result').click(function(){
         // Detect the index
+        $('.card_result').removeClass('selected');
+        $(this).toggleClass('selected');
         var index = $(this).data('trip_index');
         var result_details_div = trips_results_details[index];
         $('#results_details_container').html(result_details_div);
