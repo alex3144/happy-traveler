@@ -25,7 +25,8 @@ class FlightsController < ApplicationController
   end
 
   def autocomplete
-    @list = ::AutoCompleteService.new(params[:query]).call
+    # @list = ::AutoCompleteService.new(params[:query]).call
+    @list = ["nantes","bordeaux","toulouse"]
     respond_to do |format|
       format.js { render "autocomplete" }
     end
