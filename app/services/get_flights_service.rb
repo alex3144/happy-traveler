@@ -11,7 +11,8 @@ class GetFlightsService
   private
 
   def request_flight_result
-    flight_search_result = []
+    api_results = []
+    global_trips_results = []
     departure_date = @search_params[:departuredate].to_date
     returndate = @search_params[:returndate].to_date
     end_period_date =  @search_params[:end_period]
@@ -19,17 +20,22 @@ class GetFlightsService
     while returndate <= end_period_date
       departuredate_to_string = (departure_date).to_s
       returndate_to_string = (returndate).to_s
-      flight_search_result << SacsRuby::API::InstaFlightsSearch.get(
+      api_results = SacsRuby::API::InstaFlightsSearch.get(
         origin: @search_params[:origin],
         destination:  @search_params[:destination],
         departuredate:  departuredate_to_string,
-        returndate:  returndate_to_string, limit: '1'
+        returndate:  returndate_to_string, limit: '5'
       )
+
+      api_results["PricedItineraries"].each do |trip|
+        global_trips_results << trip
+      end
 
       departure_date += 1
       returndate += 1
     end
-    flight_search_result
+
+    global_trips_results
   end
 
 
@@ -112,12 +118,12 @@ class GetFlightsService
     # Iteration to select only desired information sorted by flights
     results_request.each do | result |
       # depart_info = result["PricedItineraries"][0]["AirItinerary"]["OriginDestinationOptions"]["OriginDestinationOption"][0]
-      depart_segments_info = result["PricedItineraries"][0]["AirItinerary"]["OriginDestinationOptions"]["OriginDestinationOption"][0]["FlightSegment"]
+      depart_segments_info = result["AirItinerary"]["OriginDestinationOptions"]["OriginDestinationOption"][0]["FlightSegment"]
       depart_segment_number = depart_segments_info.size
-      return_segments_info = result["PricedItineraries"][0]["AirItinerary"]["OriginDestinationOptions"]["OriginDestinationOption"][1]["FlightSegment"]
+      return_segments_info = result["AirItinerary"]["OriginDestinationOptions"]["OriginDestinationOption"][1]["FlightSegment"]
       # return_info = result["PricedItineraries"][0]["AirItinerary"]["OriginDestinationOptions"]["OriginDestinationOption"][1]
       return_segment_number = return_segments_info.size
-      itin_fares = result["PricedItineraries"][0]["AirItineraryPricingInfo"]["ItinTotalFare"]
+      itin_fares = result["AirItineraryPricingInfo"]["ItinTotalFare"]
 
       i = results_request.index(result) + 1
       flights_info = {}
@@ -142,21 +148,21 @@ class GetFlightsService
         return_flight_duration += segment_result["ElapsedTime"]
       end
 
-
       depart_stops_duration = stops_duration_calcul(depart_segments_info, depart_segment_number)
       return_stops_duration = stops_duration_calcul(return_segments_info, return_segment_number)
 
-
-      flights_info[:flight_values][2] << { price: (itin_fares["FareConstruction"]["Amount"].to_f / itin_fares["FareConstruction"]["DecimalPlaces"]) + itin_fares["TotalFare"]["Amount"].to_f + (itin_fares["Taxes"]["Tax"][0]["Amount"].to_f / itin_fares["Taxes"]["Tax"][0]["DecimalPlaces"].to_f),
-        currency: result["PricedItineraries"][0]["AirItineraryPricingInfo"]["ItinTotalFare"]["TotalFare"]["CurrencyCode"],
-        start_trip_duration: depart_flight_duration + depart_stops_duration,
-        return_trip_duration: return_flight_duration + return_stops_duration
+      flights_info[:flight_values][2] << { price: itin_fares["FareConstruction"]["Amount"].to_f + itin_fares["TotalFare"]["Amount"] + itin_fares["Taxes"]["Tax"][0]["Amount"],
+        currency: result["AirItineraryPricingInfo"]["ItinTotalFare"]["TotalFare"]["CurrencyCode"],
+        start_trip_duration: Time.at((depart_flight_duration + depart_stops_duration)*60).utc.strftime("%Hh%M"),
+        return_trip_duration: Time.at((return_flight_duration + return_stops_duration)*60).utc.strftime("%Hh%M")
       }
       raw_results << flights_info
+
     end
 
     sorted_results = sort_by_price(raw_results)
     top5_results = top5(sorted_results)
+
     trips = []
     top5_results.each do |result|
       trips << trip_generator(result)
