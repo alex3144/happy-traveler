@@ -4,7 +4,10 @@
 .results_lists{
   flex: 1;
   margin-right: 10px;
+  height: 80vh;
+  overflow-y: scroll;
 }
+
 .results_details{
   flex: 1;
 }
@@ -24,6 +27,7 @@
   text-align: center;
   background-color: $background-light-grey;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .date_range_graph_field{
@@ -91,20 +95,20 @@
 }
 
 .time{
-  flex:0 0 20%;
+  flex:0 0 77px;
   margin-left:3px;
 }
 
 .place{
-  flex:0 0 40%;
+  flex:0 0 135px;
 }
 
 .company{
-  flex:0 0 20%;
+  flex:0 0 68px;
 }
 
 .flight_duration{
-  flex: 0 0 20%;
+  flex: 0 0 56px;
 }
 
 .stopover_row{
