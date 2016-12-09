@@ -14,11 +14,12 @@
                 <%= select_tag(:periode, options_for_select(@periode), multiple: false) %>
                 <div class="arrow-search arrow_2 hidden"></div>
               </div>
-              <div class="input-field line_3">
-                <%= text_field_tag(:departure, nil, placeholder:"Départ", class: "validate") %>
-                <div class="arrow-search arrow_3 hidden"></div>
-              </div>
-              <div class="input-field line_4">
+
+                <div class="input-field line_3 ui-widget" id="search">
+                  <%= text_field_tag(:departure, nil, placeholder:"Départ", class: "validate autocomplete") %>
+                </div>
+              <div class="input-field line_4" id="search_destination">
+
                 <%= text_field_tag(:destination, nil, placeholder:"Destination", class: "validate") %>
                 <div class="arrow-search arrow_4 hidden"></div>
               </div>
@@ -46,6 +47,7 @@
             <% end %>
           </div>
         </div>
+
         <div class="col s6">
           <div class="blue-text text-darken-2 search_card_right">
             <div class="arrow_0_target"></div>
@@ -82,6 +84,31 @@
         $('#duration_').val(nb_days);
       });
     })
+
+    $('#departure').keypress(function(e){
+     var letter = e.target.value;
+     var url = "<%= autocomplete_path %>" + ".js"
+     $.ajax({
+       url: url,
+       data: {
+         query: letter
+       },
+       dataType: "script",
+       sucess: function(data){
+         console.log(data)
+       }
+     })
+   });
+
+
+$('#departure').autocomplete({
+  data: {
+    "Apple": null,
+    "Microsoft": null,
+  }
+
+});
   </script>
+
 <% end %>
 

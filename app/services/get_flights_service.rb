@@ -1,4 +1,5 @@
 class GetFlightsService
+
   def initialize(search_params)
     @search_params = search_params
   end
@@ -146,7 +147,7 @@ class GetFlightsService
       return_stops_duration = stops_duration_calcul(return_segments_info, return_segment_number)
 
 
-      flights_info[:flight_values][2] << { price: itin_fares["FareConstruction"]["Amount"].to_f + itin_fares["TotalFare"]["Amount"] + itin_fares["Taxes"]["Tax"][0]["Amount"],
+      flights_info[:flight_values][2] << { price: (itin_fares["FareConstruction"]["Amount"].to_f / itin_fares["FareConstruction"]["DecimalPlaces"]) + itin_fares["TotalFare"]["Amount"].to_f + (itin_fares["Taxes"]["Tax"][0]["Amount"].to_f / itin_fares["Taxes"]["Tax"][0]["DecimalPlaces"].to_f),
         currency: result["PricedItineraries"][0]["AirItineraryPricingInfo"]["ItinTotalFare"]["TotalFare"]["CurrencyCode"],
         start_trip_duration: depart_flight_duration + depart_stops_duration,
         return_trip_duration: return_flight_duration + return_stops_duration

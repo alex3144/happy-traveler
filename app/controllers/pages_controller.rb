@@ -2,6 +2,7 @@ class PagesController < ApplicationController
   def home
     @periode = month_ordered
     @passagers_number = ["0","1","2","3","4","5"]
+
   end
 
   def month_ordered
