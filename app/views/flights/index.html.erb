@@ -101,7 +101,6 @@
     $(document).ready(function(){
       // Slider initialization
       $('.date_representation_sliders').each(function(){
-        console.log();
         var slider = noUiSlider.create(this, {
           start: [$(this).data('departure_date'), $(this).data('arrival_date')],
           connect: true,
