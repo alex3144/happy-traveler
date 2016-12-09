@@ -12,9 +12,9 @@
               <div class="input-field line_2">
                 <%= select_tag(:periode, options_for_select(@periode), multiple: false) %>
               </div>
-              <div class="input-field line_3" id="search">
-                <%= text_field_tag(:departure, nil, placeholder:"Départ", class: "validate") %>
-              </div>
+                <div class="input-field line_3 ui-widget" id="search">
+                  <%= text_field_tag(:departure, nil, placeholder:"Départ", class: "validate autocomplete") %>
+                </div>
               <div class="input-field line_4" id="search_destination">
                 <%= text_field_tag(:destination, nil, placeholder:"Destination", class: "validate") %>
               </div>
@@ -52,11 +52,9 @@
 
 <% content_for (:after_js) do %>
   <script>
-   $('#search').keypress(function(e){
+   $('#departure').keypress(function(e){
      var letter = e.target.value;
-     console.log(letter);
      var url = "<%= autocomplete_path %>" + ".js"
-     console.log(url)
      $.ajax({
        url: url,
        data: {
@@ -67,7 +65,21 @@
          console.log(data)
        }
      })
-   })
+   });
+
+
+$('#departure').autocomplete({
+  data: {
+    "Apple": null,
+    "Microsoft": null,
+  }
+
+});
+
+
   </script>
+
+
+
 <% end %>
 
