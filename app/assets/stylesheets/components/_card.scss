@@ -1,0 +1,146 @@
+.title_flight{
+  text-align: center;
+}
+
+.results_wrapper{
+  display: flex;
+}
+.results_lists{
+  flex: 1;
+  margin-right: 10px;
+  height: 80vh;
+  overflow-y: scroll;
+}
+
+.results_details{
+  flex: 1;
+}
+
+
+
+.results_card_container{
+}
+
+
+.card_result{
+  display:flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 30px;
+  text-align: center;
+  background-color: $background-light-grey;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.card_result.selected{
+  background-color: $background-silver-grey;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.date_range_graph_field{
+  display:flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 5px;
+  flex: 0 0 60%;
+}
+
+.date_range_graph{
+  align-self: stretch;
+}
+
+.card_result_column2{
+  padding:5px;
+  flex: 0 0 40%;
+  p {
+    margin: 0;
+  }
+}
+
+.flight_price{
+  color: $blue-ocean;
+  font-size:19px;
+  padding:15px;
+}
+
+.flights_durations_table{
+  display: flex;
+  justify-content: space-around;
+}
+
+.flight_details_container{
+  background-color: $background-light-grey;
+  padding:5px 10px ;
+}
+
+.flight_card{
+  background-color:$background-silver-grey;
+
+}
+
+.one_trip_table{
+  display:block;
+  align-content: flex-start;
+  padding:5px;
+}
+
+.trip_table_head{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px 15px;
+  text-align:center;
+}
+
+.flight_row{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px 15px;
+  border-left: 1px solid;
+  margin:15px;
+}
+
+.time{
+  flex:0 0 77px;
+  margin-left:3px;
+}
+
+.place{
+  flex:0 0 135px;
+}
+
+.company{
+  flex:0 0 68px;
+}
+
+.flight_duration{
+  flex: 0 0 56px;
+}
+
+.stopover_row{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px 15px;
+  border-left-style: dashed;
+}
+
+.stopover_draw{
+  flex:0 0 80%;
+  margin-left:3px;
+}
+
+.stopover_duration{
+  flex:0 0 20%;
+
+}
+
+
+
+
+
+
+

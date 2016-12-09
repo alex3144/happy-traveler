@@ -6,11 +6,16 @@ class FlightsController < ApplicationController
   token.expires_on
 
   def index
+
     # User Params
     params[:periode] = params[:periode].downcase.capitalize
     start_period = date_params(params[:periode])[1]
     end_periode = date_params(params[:periode])[0]
     lengthofstay = params[:duration].join
+
+    @periode = ["Choisissez votre période","Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Août","Septembre","Octobre","Novembre","Décembre"]
+    @passagers_number = ["0","1","2","3","4","5"]
+
 
     search_params = {
       origin: params[:departure],
@@ -22,6 +27,7 @@ class FlightsController < ApplicationController
     }
 
     @trips_results = ::GetFlightsService.new(search_params).call
+
   end
 
   def autocomplete
@@ -32,7 +38,49 @@ class FlightsController < ApplicationController
     end
   end
 
-  private
+
+
+
+private
+
+  def generate_sample_trips
+    trips = []
+    10.times do
+      start_flight = Flight.new(
+        start_place:["CDG","DPS","JFK","AMS","LGE"].sample,
+        end_place:["CDG","DPS","JFK","AMS","LGE"].sample,
+        start_date: DateTime.now + rand(1..10).days,
+        end_date:DateTime.now + rand(11..15).days,
+        company: ["Air France","Luftansa", "Vueling"].sample,
+        flight_duration: [ "6H30" , "1H30", "12H40","7H00" ].sample
+      )
+
+      return_flight = Flight.new(
+        start_place:["CDG","DPS","JFK","AMS","LGE"].sample,
+        end_place:["CDG","DPS","JFK","AMS","LGE"].sample,
+        start_date: DateTime.now + rand(16..20).days,
+        end_date:DateTime.now + rand(21..30).days,
+        company: ["Air France","Luftansa", "Vueling"].sample,
+        flight_duration: [ "6H30" , "1H30", "12H40","7H00" ].sample
+      )
+
+      trip_price = [350, 600, 700, 1300].sample
+      currency = ["$","¥","€"].sample
+      global_start_trip_duration = rand(3..50)
+      global_return_trip_duration = rand(3..50)
+
+      trip = {
+        start_flight: start_flight,
+        return_flight: return_flight,
+        trip_price: trip_price,
+        currency: currency,
+        global_start_trip_duration: global_start_trip_duration,
+        global_return_trip_duration: global_return_trip_duration
+      }
+      trips << trip
+    end
+    return trips
+  end
 
   def sort_by_duration(results)
   end

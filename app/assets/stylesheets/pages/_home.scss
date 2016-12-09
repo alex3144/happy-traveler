@@ -16,8 +16,44 @@
 
   .hidden{
   visibility: hidden;
-  opacity: 0;
-  transition: visibility 1s, opacity 0.5s linear;
+}
+
+.input-field{
+  position: relative;
+}
+
+.arrow-search{
+  display: inline-block;
+  height:40px;
+  width:40px;
+  background-color:white;
+  transform: rotate(45deg);
+  position: absolute;
+  right: -70px;
+  top : 0px;
+}
+
+.arrow_1_target{
+  .collection-item:hover{
+    background-color: $blue-ocean;
+    color: white;
+  }
+}
+
+.search_card_right{
+  min-height: 560px;
+  padding: 20px;
+  margin: 0.5rem 0 1rem 0;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.search_card_left{
+  min-height: 560px;
+  padding: 20px;
+  margin: 0.5rem 0 1rem 0;
+  border-radius: 5px;
+  background-color: #fff;
 }
 
 .container{
