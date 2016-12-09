@@ -88,9 +88,9 @@ private
   def date_params(date)
 
     last_day_hash = {
-      "Janvier" => "31",
-      "Février" => "28",
-      "Mars" => "31",
+      "Janvier 2017" => "31",
+      "Février 2017" => "28",
+      "Mars 2017" => "31",
       "Avril" => "30",
       "Mai" => "31",
       "Juin" => "30",
@@ -106,9 +106,9 @@ private
 
 
     month_hash = {
-      "Janvier" => "01",
-      "Février" => "02",
-      "Mars" => "03",
+      "Janvier 2017" => "01",
+      "Février 2017" => "02",
+      "Mars 2017" => "03",
       "Avril" => "04",
       "Mai" => "05",
       "Juin" => "06",
