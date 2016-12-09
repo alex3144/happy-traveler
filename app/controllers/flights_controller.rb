@@ -11,6 +11,9 @@ class FlightsController < ApplicationController
 
   def index
     # User Params
+    @periode = ["Choisissez votre période","Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Août","Septembre","Octobre","Novembre","Décembre"]
+    @passagers_number = ["0","1","2","3","4","5"]
+
     start_period = "2017-#{date_params("Janvier")}-01"
     lengthofstay = "5"
 
@@ -24,7 +27,7 @@ class FlightsController < ApplicationController
     }
 
     @trips_results = ::GetFlightsService.new(search_params).call
-
+    @trips_results
     # @flight = Flight.new()
     # @trips = generate_sample_trips
   end
