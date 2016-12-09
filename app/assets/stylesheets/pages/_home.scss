@@ -6,7 +6,7 @@
   background: #43C6AC; /* fallback for old browsers */
   background: -webkit-linear-gradient(to left, #43C6AC , #191654); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to left, #43C6AC , #191654); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  min-height: 100vh;
+  min-height: 93vh;
   margin: 0;
   padding: 0;
   display: flex;
@@ -14,8 +14,13 @@
 }
 
 
-  .hidden{
+.hidden_animation{
+
   visibility: hidden;
+}
+
+.hidden{
+  display: none;
 }
 
 .input-field{
@@ -23,7 +28,6 @@
 }
 
 .arrow-search{
-  display: inline-block;
   height:40px;
   width:40px;
   background-color:white;
@@ -88,7 +92,7 @@
 
 .frame {
   position: absolute;
-  top: 0;
+  top: 70px;
   bottom: 0;
   right: 0;
   left: 0;
