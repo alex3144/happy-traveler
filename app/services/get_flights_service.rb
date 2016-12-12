@@ -71,9 +71,9 @@ class GetFlightsService
     duration_stop
   end
 
-  def select_time_duration(results)
-    results.select! { |record| record[:flight_values][2].last[:start_trip_duration] < 1440 && record[:flight_values][2].last[:return_trip_duration] }
-  end
+  # def select_time_duration(results)
+  #   results.select! { |record| record[:flight_values][2].last[:start_trip_duration] < 1440 && record[:flight_values][2].last[:return_trip_duration] }
+  # end
 
   def sort_by_price(results)
     results.sort_by { |record| record[:flight_values][2].last[:price] }
@@ -173,8 +173,8 @@ class GetFlightsService
 
     end
 
-    selected_results = select_time_duration(raw_results)
-    sorted_results = sort_by_price(selected_results)
+    # selected_results = select_time_duration(raw_results)
+    sorted_results = sort_by_price(raw_results)
     top5_results = top5(sorted_results)
 
     trips = []
