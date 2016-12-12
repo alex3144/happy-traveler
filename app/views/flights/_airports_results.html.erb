@@ -1,0 +1,10 @@
+<div class="text-center">
+ <h5> Choisissez votre vile </h5>
+</div>
+<div class="collection">
+ <ul>
+   <% airports_list.each do |airport| %>
+     <li class="collection-item city_<%= mode %>" data-city='<%= airport %>'> <i class="fa fa-map-marker" aria-hidden="true"></i> <%= airport %> </li>
+   <%end%>
+ </ul>
+</div>
