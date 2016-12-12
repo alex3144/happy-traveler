@@ -1,8 +1,5 @@
-$('#search').autocomplete({
-
-     source : ["toto","tat"]
-
- });
-
-
-
+<% if @mode == "departure" %>
+  $(".arrow_3_target").html("<%= j render 'airports_results', airports_list: @list, mode: @mode %>");
+<%else%>
+  $(".arrow_4_target").html("<%= j render 'airports_results', airports_list: @list, mode: @mode %>");
+<% end %>
