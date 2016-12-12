@@ -2,7 +2,7 @@
  * CSS code specific to home page
  * (margin/padding adjustments)
  * ------------------------------------- */
-.wrapper {
+.wrapper{
   min-height: 100vh;
   margin: 0;
   padding: 0;
@@ -12,11 +12,31 @@
   font-family: Lato, Helvetica, sans-serif;
 }
 
-.search__departure-input {
-  background-image: noun_720560_cc ;
+#duration_, #periode{
+  background-image: url(calendar.svg);
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: 11px center;
+  padding-left: 50px;
 }
 
-.search__title {
+#departure{
+  background-image: url(departure.svg);
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: 11px center;
+  padding-left: 50px;
+}
+
+#destination{
+  background-image: url(arrival.svg);
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: 11px center;
+  padding-left: 50px;
+}
+
+.search__title{
     text-rendering: optimizeLegibility;
     font-size: 20px;
     font-weight: 400;
@@ -45,11 +65,6 @@
   display: none;
 }
 
-.input-field{
-  position: relative;
-  background-repeat: no-repeat;
-  background-position: 12px center;
-}
 
 .arrow-search{
   height:40px;
@@ -139,7 +154,7 @@
 
 .frame {
   position: absolute;
-  top: px;
+  top: 250px;
   bottom: 0;
   right: 0;
   left: 0;
