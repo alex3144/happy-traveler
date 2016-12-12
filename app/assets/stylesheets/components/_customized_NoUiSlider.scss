@@ -18,3 +18,16 @@
 .noUi-target{
 
 }
+
+// .noUi-target  This class is added to the element you call  .noUiSlider() on.
+// Has  border, background and other styling properties to establish the slider design.
+// // .noUi-base  The slider bar. Serves as the calculating point for the slider handles,
+// and has no visible styling.
+// // .noUi-origin  The elements connected to the base, defining the handle locations.
+// // .noUi-handle  The actual, visible handles. Style these any way you like!
+// // .noUi-connect Styling class for setting properties related to the slider connect segment.
+// // .noUi-background  Styling class for setting properties related to the slider background.
+// // .noUi-state-tap This class is added when the slider bar is tapped or clicked.
+//  A slider with this call will reject any user input. noUiSlider will remove this class after  300ms,
+//  leaving that timespan to perform visual animations.
+// [disabled]  Apply this to your slider to disable it, and make sure the slider visuals reflect the disabled state.

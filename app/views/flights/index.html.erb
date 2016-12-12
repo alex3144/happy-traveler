@@ -108,6 +108,7 @@
         var slider = noUiSlider.create(this, {
           start: [$(this).data('departure_date'), $(this).data('arrival_date')],
           connect: true,
+          tooltypes: true,
           step: 1,
           range: {
             'min': 1,

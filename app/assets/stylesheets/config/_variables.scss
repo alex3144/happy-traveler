@@ -7,10 +7,15 @@
 
 
 $header-font: "Raleway", "Helvetica", "sans-serif";
+$base-font : "Lato", "Helvetica", "sans-serif";
 $title-font: "Lato", "Helvetica", "sans-serif";
 $main-font: "Lato", "Helvetica", "sans-serif";
 $serif-font: 'Crimson Text', serif;
-$base-font : "Lato", "Helvetica", "sans-serif";
+
+
+// Font-size and line-height
+$base-size: 16px;
+$base-height: 1.4;
 
 
 // Local fonts (uncomment following lines)
@@ -23,9 +28,7 @@ $base-font : "Lato", "Helvetica", "sans-serif";
 // }
 // $my-font: "Font Name";
 
-// Font-size and line-height
-$base-size: 16px;
-$base-height: 1.4;
+
 
 /* -------------------------------------
  * Colors
