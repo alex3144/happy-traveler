@@ -10,6 +10,7 @@ gem 'redis'
 
 gem 'sass-rails'
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem 'uglifier'
 gem 'font-awesome-sass'
 gem 'simple_form'
@@ -28,5 +29,3 @@ group :development, :test do
   gem 'listen', '~> 3.0.5'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
-
-
