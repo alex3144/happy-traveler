@@ -11,7 +11,7 @@
             <div class="flight_row">
               <div class="time"><p><%=result_details[:depart_flights].first.departure_datetime.to_date.strftime("%A, %b %d") %></p></div>
               <div class="place"><%=result_details[:depart_flights].first.departure_airport%></div>
-              <div class="company"><%=result_details[:depart_flights].first.marketing_airline%></div>
+              <div class="company"><img src=<%=result_details[:depart_flights].first.marketing_airline%> alt="Airline Company" height="32"> </div></div>
               <div class="duration">To do API</div>
             </div>
             <% if result_details[:depart_flights][1] %>
@@ -22,7 +22,7 @@
               <div class="flight_row">
                 <div class="time"><p><%=result_details[:depart_flights][1].departure_datetime.to_date.strftime("%A, %b %d") %></p></div>
                 <div class="place"><%=result_details[:depart_flights][1].departure_airport%></div>
-                <div class="company"><%=result_details[:depart_flights][1].marketing_airline%></div>
+                <div class="company"><img src=<%=result_details[:depart_flights][1].marketing_airline%> alt="Airline Company" height="32"> </div>
                 <div class="duration">TO DO API</div>
               </div>
             <% end %>
@@ -41,7 +41,7 @@
             <div class="flight_row">
               <div class="time"><p><%=result_details[:return_flights].first.departure_datetime.to_date.strftime("%A, %b %d") %></p></div>
               <div class="place"><%=result_details[:return_flights].first.departure_airport%></div>
-              <div class="company"><%=result_details[:return_flights].first.marketing_airline%></div>
+              <div class="company"><img src=<%=result_details[:return_flights].first.marketing_airline%> alt="Airline Company" height="32"> </div></div>
               <div class="duration">To do API</div>
             </div>
             <% if result_details[:return_flights][1] %>
@@ -52,7 +52,7 @@
               <div class="flight_row">
                 <div class="time"><p><%=result_details[:return_flights][1].departure_datetime.to_date.strftime("%A, %b %d") %></p></div>
                 <div class="place"><%=result_details[:return_flights][1].departure_airport%></div>
-                <div class="company"><%=result_details[:return_flights][1].marketing_airline%></div>
+                <div class="company"><img src=<%=result_details[:return_flights][1].marketing_airline%> alt="Airline Company" height="32"> </div></div>
                 <div class="duration">TO DO API</div>
               </div>
             <% end %>

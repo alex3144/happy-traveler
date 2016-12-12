@@ -24,7 +24,14 @@ class GetFlightsService
         origin: @search_params[:origin],
         destination:  @search_params[:destination],
         departuredate:  departuredate_to_string,
-        returndate:  returndate_to_string, limit: '5'
+        returndate:  returndate_to_string,
+        limit: '5',
+        onlineitinerariesonly: "N",
+        sortby: "totalfare",
+        order: "asc",
+        eticketsonly: "N"
+        # sortby2: "totalfare",
+        # order2: "asc"
       )
 
       api_results["PricedItineraries"].each do |trip|
@@ -64,6 +71,10 @@ class GetFlightsService
     duration_stop
   end
 
+  def select_time_duration(results)
+    results.select! { |record| record[:flight_values][2].last[:start_trip_duration] < 1440 && record[:flight_values][2].last[:return_trip_duration] }
+  end
+
   def sort_by_price(results)
     results.sort_by { |record| record[:flight_values][2].last[:price] }
   end
@@ -85,7 +96,7 @@ class GetFlightsService
           arrival_datetime: flight[:start_segment_arrival_datetime],
           arrival_timezone: flight[:start_segment_arrival_timezone],
           flight_number: flight[:start_segment_flight_number],
-          marketing_airline: flight[:start_segment_marketing_airline],
+          marketing_airline: "http://0.omg.io/wego/image/upload/c_fit,w_200,h_70/flights/airlines_rectangular/" + flight[:start_segment_marketing_airline] + ".png",
           step: index
           )
 
@@ -100,7 +111,7 @@ class GetFlightsService
           arrival_datetime: flight[:start_segment_arrival_datetime],
           arrival_timezone: flight[:start_segment_arrival_timezone],
           flight_number: flight[:start_segment_flight_number],
-          marketing_airline: flight[:start_segment_marketing_airline],
+          marketing_airline: "http://0.omg.io/wego/image/upload/c_fit,w_200,h_70/flights/airlines_rectangular/" + flight[:start_segment_marketing_airline] + ".png",
           step: index
           )
 
@@ -151,16 +162,19 @@ class GetFlightsService
       depart_stops_duration = stops_duration_calcul(depart_segments_info, depart_segment_number)
       return_stops_duration = stops_duration_calcul(return_segments_info, return_segment_number)
 
-      flights_info[:flight_values][2] << { price: itin_fares["FareConstruction"]["Amount"].to_f + itin_fares["TotalFare"]["Amount"] + itin_fares["Taxes"]["Tax"][0]["Amount"],
+      flights_info[:flight_values][2] << { price: itin_fares["TotalFare"]["Amount"],
         currency: result["AirItineraryPricingInfo"]["ItinTotalFare"]["TotalFare"]["CurrencyCode"],
-        start_trip_duration: Time.at((depart_flight_duration + depart_stops_duration)*60).utc.strftime("%Hh%M"),
-        return_trip_duration: Time.at((return_flight_duration + return_stops_duration)*60).utc.strftime("%Hh%M")
+        start_trip_duration: depart_flight_duration + depart_stops_duration,
+        return_trip_duration: return_flight_duration + return_stops_duration
+        # start_trip_duration: Time.at((depart_flight_duration + depart_stops_duration)*60).utc.strftime("%Hh%M"),
+        # return_trip_duration: Time.at((return_flight_duration + return_stops_duration)*60).utc.strftime("%Hh%M")
       }
       raw_results << flights_info
 
     end
 
-    sorted_results = sort_by_price(raw_results)
+    selected_results = select_time_duration(raw_results)
+    sorted_results = sort_by_price(selected_results)
     top5_results = top5(sorted_results)
 
     trips = []
