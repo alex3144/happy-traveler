@@ -1,12 +1,13 @@
 <div class="container">
-  <div class="banner_destination_picture">
-   <img src="" alt="">
+  <div class="go_home">
+    <div class="logo_home">
+      <i class="fa fa-home" aria-hidden="true"></i>
+    </div>
   </div>
 
-  <div class="inline_search_bar">
+ <!--  <div class="inline_search_bar">
     <div class="inline_search_form">
       <div class="card-panel blue-text text-darken-2 search_card">
-        <!-- définir la route exact et le type de méthode get/post -->
         <%= form_tag(flights_path, method: :get) do %>
         <div class="row">
         <div class="line1 col s12 "></div>
@@ -54,48 +55,51 @@
         </div>
         <% end %>
       </div>
-    </div>
-
-  <div class="results_wrapper">
-    <div class="results_lists">
-      <% @trips_results.each_with_index do |trip, index|%>
-        <div class="box_result">
-          <div class="results_card_container">
-            <div class="card_result" data-trip_index="<%= index %>">
-              <div class="date_range_graph_field">
-                <div class="date_range_graph">
-                  <div class="date_representation_sliders" data-departure_date="<%= trip[:depart_flights][0].departure_datetime.to_date.strftime('%e').to_i %>" data-arrival_date="<%= trip[:return_flights][-1].arrival_datetime.to_date.strftime('%e').to_i %>"></div>
-                  <p>Mars 2017</p>
-                </div>
-              </div>
-              <div class="card_result_column2">
-                <div class="flight_price">
-                  <p><%= trip[:details][:price]%> <%= trip[:details][:currency]%></p>
-                </div>
-                <p>Temps de voyage</p>
-                <div class="flights_durations_table">
-                  <div class="start_flight_duration">
-                    <p><i class="fa fa-plane" aria-hidden="true"></i>Aller</p>
-                    <p><%= trip[:details][:start_trip_duration]%></p>
+    </div> -->
+  <div class="row">
+    <div class="results_wrapper col s12">
+      <div class="results_lists col s6">
+        <% @trips_results.each_with_index do |trip, index|%>
+          <div class="box_result">
+            <div class="results_card_container">
+              <div class="card_result" data-trip_index="<%= index %>">
+                <div class="date_range_graph_field">
+                  <div class="date_range_graph">
+                    <div class="date_representation_sliders" data-departure_date="<%= trip[:depart_flights][0].departure_datetime.to_date.strftime('%e').to_i %>" data-arrival_date="<%= trip[:return_flights][-1].arrival_datetime.to_date.strftime('%e').to_i %>">
+                    </div>
+                    <p>Mars 2017</p>
                   </div>
-                  <div class="return_flight_duration">
-                    <p><i class="fa fa-plane" aria-hidden="true"></i>Retour</p>
-                    <p><%= trip[:details][:return_trip_duration]%></p>
+                </div>
+                <div class="card_result_column2">
+                  <div class="flight_price">
+                    <p><%= trip[:details][:price]%> <%= trip[:details][:currency]%></p>
+                  </div>
+                  <p>Temps de voyage</p>
+                  <div class="flights_durations_table">
+                    <div class="start_flight_duration">
+                      <p><i class="fa fa-plane" aria-hidden="true"></i>Aller</p>
+                      <p><%= trip[:details][:start_trip_duration]%></p>
+                    </div>
+                    <div class="return_flight_duration">
+                      <p><i class="fa fa-plane" aria-hidden="true"></i>Retour</p>
+                      <p><%= trip[:details][:return_trip_duration]%></p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+        <% end %>
+      </div>
+      <div class="flight_details_container col s6">
+        <div id="results_details_container" >
+         <%= render 'result_details', result_details: @trips_results[0] %>
         </div>
-      <% end %>
+      </div>
     </div>
-    <div id="results_details_container" class="results_details">
-     <%= render 'result_details', result_details: @trips_results[0] %>
-    </div>
-
-
   </div>
 </div>
+
 <% content_for(:after_js) do %>
   <script>
     $(document).ready(function(){
@@ -116,7 +120,6 @@
       });
 
       // Flight results
-      $('.flight_card').first().addClass('selected');
       var trips_results_details = [];
       <% @trips_results.each_with_index do |result_details, index| %>
         var result_details = "<%= j render 'result_details', result_details: result_details %>"

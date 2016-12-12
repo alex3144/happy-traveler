@@ -4,17 +4,22 @@
 
 .results_wrapper{
   display: flex;
+  padding: 0px;
 }
 .results_lists{
-  flex: 1;
-  margin-right: 10px;
-  height: 80vh;
+  height: 100vh;
   overflow-y: scroll;
+  padding: 20px;
+  margin: 0 0.75rem;
+  border-radius: 5px;
+  background-color: #fff;
 }
 
-.results_details{
-  flex: 1;
+.flight_details_container{
+
 }
+
+
 
 
 
@@ -25,7 +30,6 @@
 .card_result{
   display:flex;
   justify-content: space-between;
-  flex-wrap: wrap;
   align-items: center;
   margin-bottom: 30px;
   text-align: center;
@@ -71,8 +75,10 @@
 }
 
 .flight_details_container{
-  background-color: $background-light-grey;
-  padding:5px 10px ;
+  padding: 20px 5px;
+  margin: 0 0.75rem;
+  border-radius: 5px;
+  background-color: #fff;
 }
 
 .flight_card{
@@ -90,7 +96,7 @@
   display:flex;
   justify-content: space-between;
   align-items: center;
-  margin: 5px 15px;
+  margin: 5px 5px;
   text-align:center;
 }
 
@@ -98,10 +104,10 @@
   display:flex;
   justify-content: space-between;
   align-items: center;
-  margin: 5px 15px;
+  margin: 5px  5px;
   border-left: 1px solid;
-  margin:15px;
 }
+
 
 .time{
   flex:0 0 77px;
@@ -110,31 +116,35 @@
 
 .place{
   flex:0 0 135px;
+  text-align: center;
 }
 
 .company{
   flex:0 0 68px;
+  text-align: center;
 }
 
-.flight_duration{
+.duration{
   flex: 0 0 56px;
+  text-align: center;
 }
 
 .stopover_row{
   display:flex;
   justify-content: space-between;
   align-items: center;
-  margin: 5px 15px;
+  margin: 5px 5px;
   border-left-style: dashed;
 }
 
 .stopover_draw{
-  flex:0 0 80%;
+  flex:0 0 auto;
   margin-left:3px;
 }
 
 .stopover_duration{
-  flex:0 0 20%;
+  flex:0 0 56px;
+  text-align:center;
 
 }
 

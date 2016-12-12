@@ -1,10 +1,14 @@
 SacsRuby.configure do |config|
-  config.user_id = ENV["SABRE_API_ID"] # User ID
+  config.user_id = '0lailkqaz59avffl' # User ID
   config.group = 'DEVCENTER' # Group
   config.domain = 'EXT' # Domain
-  config.client_secret = ENV["SABRE_API_SECRET"]  # Client Secret
+  config.client_secret = 'lMtn6WE6'  # Client Secret
   config.environment = 'https://api.test.sabre.com' # Environment
-  config.token_strategy = :single # or :shared - see Token paragraph
+  config.token_strategy = :shared # or :shared - see Token paragraph
 end
 
+
+
+# Flights API
+# Key: V1:0lailkqaz59avffl:DEVCENTER:EXT
 
