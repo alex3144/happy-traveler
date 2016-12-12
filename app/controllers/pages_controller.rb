@@ -5,7 +5,6 @@ class PagesController < ApplicationController
   end
 
   def month_ordered
-    placeholder = "Choisissez votre période"
     date = Time.now
     actual_month = date.month - 1
     actual_year = date.year
@@ -22,7 +21,7 @@ class PagesController < ApplicationController
       end
     end
     results = first_months + last_months
-    results.unshift(placeholder)
+    results = results.first(6)
     return results
 
   end
