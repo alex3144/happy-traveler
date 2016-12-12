@@ -18,8 +18,8 @@ class FlightsController < ApplicationController
 
 
     search_params = {
-      origin: params[:departure],
-      destination: params[:destination],
+      origin: params[:departure].match(/\((.*)\)/)[1],
+      destination: params[:destination].match(/\((.*)\)/)[1],
       lengthofstay: params[:duration].join,
       end_period: end_periode.to_date,
       departuredate: start_period,
@@ -31,12 +31,12 @@ class FlightsController < ApplicationController
   end
 
   def autocomplete
-    # @list = ::AutoCompleteService.new(params[:query]).call
-    @list = ["nantes","bordeaux","toulouse"]
-    respond_to do |format|
-      format.js { render "autocomplete" }
-    end
-  end
+   @mode = params[:mode]
+   @list = ::AutoCompleteService.new(params[:query]).call
+   respond_to do |format|
+     format.js
+   end
+ end
 
 
 
