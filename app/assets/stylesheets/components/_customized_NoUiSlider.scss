@@ -1,6 +1,21 @@
-.range-label{
-  background-color: $blue-ocean !important;
+.noUi-target .range-label {
+  background-color: transparent !important;
+  top: -40px !important;
+  color: $blue-ocean !important;
+  font-size: 30px !important;
+  span{
+    color: $blue-ocean !important;
+    font-size: 30px !important;
+    opacity: 100 !important;
+  }
 }
+
+.range-label span{
+  color: $blue-ocean !important;
+  font-size: 30px !important;
+  opacity: 100 !important;
+}
+
 
 .noUI-base{
 }

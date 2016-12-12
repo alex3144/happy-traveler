@@ -7,23 +7,22 @@ class FlightsController < ApplicationController
 
   def index
 
+    @trip_periode = params[:periode].downcase.capitalize
+
     # User Params
     params[:periode] = params[:periode].downcase.capitalize
-    start_period = date_params(params[:periode])[1]
-    end_periode = date_params(params[:periode])[0]
-    lengthofstay = params[:duration].join
-
-    @periode = ["Choisissez votre période","Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Août","Septembre","Octobre","Novembre","Décembre"]
-    @passagers_number = ["0","1","2","3","4","5"]
+    @start_period = date_params(params[:periode])[1]
+    @end_periode = date_params(params[:periode])[0]
+    @lengthofstay = params[:duration].join
 
 
     search_params = {
       origin: params[:departure],
       destination: params[:destination],
       lengthofstay: params[:duration].join,
-      end_period: end_periode.to_date,
-      departuredate: start_period,
-      returndate: (start_period.to_date + lengthofstay.to_i).to_s
+      end_period: @end_periode.to_date,
+      departuredate: @start_period,
+      returndate: (@start_period.to_date + @lengthofstay.to_i).to_s
     }
 
     @trips_results = ::GetFlightsService.new(search_params).call
@@ -52,8 +51,8 @@ private
     last_day_hash = {
       "Janvier 2017" => "31",
       "Février 2017" => "28",
-      "Mars" => "31",
-      "Avril" => "30",
+      "Mars 2017" => "31",
+      "Avril 2017" => "30",
       "Mai" => "31",
       "Juin" => "30",
       "Juillet" => "31",
@@ -67,9 +66,9 @@ private
 
     month_hash = {
       "Janvier 2017" => "01",
-      "Février" => "02",
-      "Mars" => "03",
-      "Avril" => "04",
+      "Février 2017" => "02",
+      "Mars 2017" => "03",
+      "Avril 2017" => "04",
       "Mai" => "05",
       "Juin" => "06",
       "Juillet" => "07",
