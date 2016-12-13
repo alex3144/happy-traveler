@@ -69,7 +69,7 @@
               return value + '';
             },
             from: function ( value ) {
-              return value.replace('.00', '');
+              return value.replace('.00', $(this).data('departure_date_month'));
             }
           },
           disabled: true,
@@ -86,9 +86,11 @@
 
       // Register click on card result
       $('.card_result').click(function(){
-        // Detect the index
+
         $('.card_result').removeClass('selected');
         $(this).toggleClass('selected');
+
+        // Detect the index
         var index = $(this).data('trip_index');
         var result_details_div = trips_results_details[index];
         $('#results_details_container').html(result_details_div);

@@ -29,7 +29,7 @@
 }
 
 .card_result.selected{
-  background-color: $background-silver-grey;
+  background-color: #E3696E;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -81,14 +81,11 @@
 
 }
 
-
-
-
-
 .one_trip_table{
   display:block;
   align-content: flex-start;
   padding:5px;
+  background-color:#E3696E;
   p{
     margin: 1px;
 
