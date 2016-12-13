@@ -64,14 +64,14 @@
             'min': 1,
             'max': 31,
           },
-          // format: {
-          //   to: function ( value ) {
-          //     return value + $(this).data('departure_date_month');
-          //   },
-          //   from: function ( value ) {
-          //     return value.replace($(this).data('departure_date_month'), 'papa');
-          //   }
-          // },
+          format: {
+            to: function ( value ) {
+              return value + '';
+            },
+            from: function ( value ) {
+              return value.replace('.00', '');
+            }
+          },
           disabled: true,
         });
         this.setAttribute('disabled', true);

@@ -7,7 +7,7 @@
   padding: 0px;
 }
 .results_lists{
-  height: 100vh;
+  height: 85vh;
   overflow-y: scroll;
   padding: 20px;
   margin: 0 0.75rem;
@@ -15,23 +15,13 @@
   background-color: #fff;
 }
 
-.flight_details_container{
-
-}
-
-
-
-
-
-.results_card_container{
-}
 
 
 .card_result{
   display:flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 30px;
+  margin: 30px;
   text-align: center;
   background-color: $background-light-grey;
   border-radius: 5px;
@@ -79,6 +69,11 @@
   margin: 0 0.75rem;
   border-radius: 5px;
   background-color: #fff;
+  height: 85vh;
+  overflow-y: scroll;
+  h3{
+    font-size: 25px;
+  }
 }
 
 .flight_card{
@@ -86,10 +81,18 @@
 
 }
 
+
+
+
+
 .one_trip_table{
   display:block;
   align-content: flex-start;
   padding:5px;
+  p{
+    margin: 1px;
+
+  }
 }
 
 .trip_table_head{
@@ -138,8 +141,9 @@
 }
 
 .stopover_draw{
-  flex:0 0 auto;
+  flex:1 0 auto;
   margin-left:3px;
+  text-align: center;
 }
 
 .stopover_duration{
