@@ -1,0 +1,8 @@
+<div class="search__title">
+ Choisissez votre ville
+</div>
+<div class="collection">
+   <% airports_list.each do |airport| %>
+     <div class="collection-item city_<%= mode %>" data-city='<%= airport %>'> <i class="fa fa-map-marker" aria-hidden="true"></i> <%= airport %> </div>
+   <%end%>
+</div>

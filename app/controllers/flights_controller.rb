@@ -17,8 +17,8 @@ class FlightsController < ApplicationController
 
 
     search_params = {
-      origin: params[:departure],
-      destination: params[:destination],
+      origin: params[:departure].match(/\((.*)\)/)[1],
+      destination: params[:destination].match(/\((.*)\)/)[1],
       lengthofstay: params[:duration].join,
       end_period: @end_periode.to_date,
       departuredate: @start_period,
@@ -30,12 +30,12 @@ class FlightsController < ApplicationController
   end
 
   def autocomplete
-    # @list = ::AutoCompleteService.new(params[:query]).call
-    @list = ["nantes","bordeaux","toulouse"]
-    respond_to do |format|
-      format.js { render "autocomplete" }
-    end
-  end
+   @mode = params[:mode]
+   @list = ::AutoCompleteService.new(params[:query]).call
+   respond_to do |format|
+     format.js
+   end
+ end
 
 
 
@@ -124,6 +124,48 @@ private
     return trips
   end
 
+  def sort_by_duration(results)
+  end
+
+  def date_params(date)
+
+    last_day_hash = {
+      "Janvier 2017" => "31",
+      "Février 2017" => "28",
+      "Mars 2017" => "31",
+      "Avril" => "30",
+      "Mai" => "31",
+      "Juin" => "30",
+      "Juillet" => "31",
+      "Aout" => "31",
+      "Septembre" => "30",
+      "Octobre" => "31",
+      "Novembre" => "30",
+      "Decembre" => "31",
+
+    };
+
+
+
+    month_hash = {
+      "Janvier 2017" => "01",
+      "Février 2017" => "02",
+      "Mars 2017" => "03",
+      "Avril" => "04",
+      "Mai" => "05",
+      "Juin" => "06",
+      "Juillet" => "07",
+      "Aout" => "08",
+      "Septembre" => "09",
+      "Octobre" => "10",
+      "Novembre" => "11",
+      "Decembre" => "12",
+
+    }
+
+    results = ["2017" + "-" + month_hash[date] +"-" + last_day_hash[date],
+    "2017" + "-" + month_hash[date] + "-01"]
+  end
 end
 
 
