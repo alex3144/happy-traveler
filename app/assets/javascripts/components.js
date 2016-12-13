@@ -38,15 +38,15 @@
   });
 
   $(".arrow_1_target").click(function(){
-    $('.line_1').next().click();
+    $('#periode').focus().click();
   });
 
   $(".arrow_2_target").click(function(){
-    $('.line_2').next().click();
+    $('#departure').focus().click();
   });
 
   $(".arrow_3_target").click(function(){
-    $('.line_3').next().click();
+    $('#destination').focus().click();
   });
 
 });

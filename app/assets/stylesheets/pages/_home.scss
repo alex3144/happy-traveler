@@ -12,27 +12,27 @@
   font-family: Lato, Helvetica, sans-serif;
 }
 
-#duration_, #periode{
+.line_1, .line_2{
   background-image: url(calendar.svg);
   background-size: 20px;
   background-repeat: no-repeat;
-  background-position: 11px center;
+  background-position: 11px 18px;
   padding-left: 50px;
 }
 
-#departure{
+.line_3{
   background-image: url(departure.svg);
   background-size: 20px;
   background-repeat: no-repeat;
-  background-position: 11px center;
+  background-position: 11px 18px;
   padding-left: 50px;
 }
 
-#destination{
+.line_4{
   background-image: url(arrival.svg);
   background-size: 20px;
   background-repeat: no-repeat;
-  background-position: 11px center;
+  background-position: 11px 18px;
   padding-left: 50px;
 }
 
