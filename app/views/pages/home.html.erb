@@ -6,7 +6,10 @@
           <div class="search_card_left">
         <!-- définir la route exact et le type de méthode get/post -->
             <%= form_tag(flights_path, method: :get) do %>
-              <div class="input-field line_1">
+              <div class="search__title">
+                Quel est votre trajet ?
+              </div>
+              <div class="input-field line_1 ">
                 <%= number_field(:duration, nil, in: 1..30, step: 1, placeholder: "Durée du séjour en jours", class: "validate field_1") %>
                 <div class="arrow-search arrow_1 hidden"></div>
               </div>
@@ -15,11 +18,11 @@
                 <div class="arrow-search arrow_2 hidden"></div>
               </div>
 
-                <div class="input-field line_3 ui-widget" id="search">
-                  <%= text_field_tag(:departure, nil, placeholder:"Départ", class: "validate autocomplete") %>
+                <div class="input-field line_3" id="search">
+                  <%= text_field_tag(:departure, nil, placeholder:"Départ", class: "validate") %>
+                  <div class="arrow-search arrow_3 hidden"></div>
                 </div>
               <div class="input-field line_4" id="search_destination">
-
                 <%= text_field_tag(:destination, nil, placeholder:"Destination", class: "validate") %>
                 <div class="arrow-search arrow_4 hidden"></div>
               </div>
@@ -49,8 +52,11 @@
         </div>
         <div class="col s6">
           <div class="search_card_right">
-            <div class="arrow_1_target hidden">
-              <p >Durée du séjour :</p>
+            <div class="arrow_0_target hidden">
+
+            </div>
+            <div class="arrow_1_target search__title hidden">
+              Sélectionnez votre nombre de jours
             </div>
             <div class="arrow_1_target hidden collection">
               <div class="collection-item" data-nb_days="2">2 jours</div>
@@ -61,7 +67,7 @@
               <div class="collection-item" data-nb_days="14">14 jours</div>
             </div>
             <div class="arrow_2_target hidden">
-              <p >Séléctionnez votre mois :</p>
+              <div class="search__title">Séléctionnez votre mois</div>
               <% @periode.each do |month| %>
                 <div class="div_month col s6" data-month="<%=month%>" >
                   <div class="card_month">
@@ -71,10 +77,14 @@
               <% end %>
             </div>
             <div class="arrow_3_target hidden">
-
+              <div class="search__title">
+               Choisissez votre ville
+              </div>
             </div>
             <div class="arrow_4_target hidden">
-
+              <div class="search__title">
+               Choisissez votre ville
+              </div>
             </div>
           </div>
         </div>
@@ -83,8 +93,8 @@
   </div>
 </div>
 
+
 <%= render "cloud", color: "blue" %>
-<%= render "sun" %>
 
 <% content_for(:after_js) do %>
   <script>
