@@ -12,19 +12,33 @@
   font-family: Lato, Helvetica, sans-serif;
 }
 
-.presentation_title{
-  background-color: $dark-blue;
+.arrow_0_target{
+  min-height: 600px;
+}
+
+.presentation_title_text{
   color: white;
   text-rendering: optimizeLegibility;
   font-size: 20px;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-smoothing: antialiased;
-  text-align: center;
+}
+
+.presentation_title{
+  background-color: $dark-blue;
+  display: flex;
   border-radius: 5px 5px 0 0;
   height: 80px;
-  vertical-align: middle;
+  justify-content: center;
+  align-items: center
+}
+
+.presentation_content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
 }
 
 .card_presentation{
@@ -50,6 +64,7 @@
   background-repeat: no-repeat;
   background-position: 70px center;
   padding-left: 140px;
+  padding-right: 120px;
 }
 
 .line_1, .line_2{
