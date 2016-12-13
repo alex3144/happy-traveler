@@ -38,7 +38,63 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 400px;
+  height: 440px;
+  ul{
+    li{
+      margin: 15px;
+      padding: 0px;
+      font-size: 20px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      .circle_icon_1{
+        background-image: url(circle_shuffle.svg);
+        background-size: 40px;
+        background-repeat: no-repeat;
+        background-position: 11px center;
+        padding-left: 70px;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .circle_icon_2{
+        background-image: url(circle_calendar.svg);
+        background-size: 40px;
+        background-repeat: no-repeat;
+        background-position: 11px center;
+        padding-left: 70px;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .circle_icon_3{
+        background-image: url(circle_money.svg);
+        background-size: 40px;
+        background-repeat: no-repeat;
+        background-position: 11px center;
+        padding-left: 70px;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    };
+  };
+}
+
+.presentation_footer{
+  height: 80px;
+  background-color: $background-light-grey;
+  border-radius: 0 0 5px 5px;
+  justify-content: center;
+  align-items: center;
+}
+
+.presentation_footer_description{
+  font-size: 15px;
+  font-weight: 200;
 }
 
 .card_presentation{
