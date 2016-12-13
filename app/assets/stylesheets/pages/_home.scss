@@ -12,6 +12,46 @@
   font-family: Lato, Helvetica, sans-serif;
 }
 
+.presentation_title{
+  background-color: $dark-blue;
+  color: white;
+  text-rendering: optimizeLegibility;
+  font-size: 20px;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: antialiased;
+  text-align: center;
+  border-radius: 5px 5px 0 0;
+  height: 80px;
+  vertical-align: middle;
+}
+
+.card_presentation{
+  min-height: 600px;
+  // padding: 20px;
+  margin: 0.5rem 0 1rem 0;
+  border-radius: 5px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.title_div{
+  width: 100%;
+  display: flex;
+}
+
+.logo_title{
+  align-items: center;
+  margin: 0 auto;
+  color:white;
+  background-image: url(logo.svg);
+  background-size: 60px;
+  background-repeat: no-repeat;
+  background-position: 70px center;
+  padding-left: 140px;
+}
+
 .line_1, .line_2{
   background-image: url(calendar.svg);
   background-size: 20px;
@@ -146,6 +186,12 @@
 
 .search_button{
   width: 100%;
+  padding: 0;
+
+  .waves-button-input {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 * {

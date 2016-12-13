@@ -2,6 +2,11 @@
   <div class="container">
     <div class="row">
       <div class="col s12">
+        <div class="title_div">
+          <div class="logo_title">
+            <h1>Mac flight</h1>
+          </div>
+        </div>
         <div class="col s6">
           <div class="search_card_left">
         <!-- définir la route exact et le type de méthode get/post -->
@@ -45,16 +50,29 @@
 
               </div>
               <div class="input-field line_5">
-                <%= submit_tag("Rechercher", class: "search_button btn waves-effect waves-light") %>
+                <%= submit_tag("Rechercher", class: "btn waves-effect waves-light search_button") %>
               </div>
             <% end %>
           </div>
         </div>
         <div class="col s6">
-          <div class="search_card_right">
-            <div class="arrow_0_target hidden">
-
+          <div class="card_presentation">
+            <div class="arrow_0_target">
+              <div class="arrow_0_target">
+                <div class="presentation_title">
+                  Les petits plus de Macflight
+                </div>
+                <div class="presentation_content">
+                  <ul>
+                    <li>Soyer flexible sur la periode</li>
+                    <li>Ne perdez plus un jour de vacances</li>
+                    <li>Le prix ou le temps</li>
+                  </ul>
+                </div>
+              </div>
             </div>
+          </div>
+          <div class="search_card_right hidden">
             <div class="arrow_1_target search__title hidden">
               Sélectionnez votre nombre de jours
             </div>
