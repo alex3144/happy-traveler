@@ -1,0 +1,18 @@
+.go_home{
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.logo_home{
+  flex: 0 0 auto;
+  color: white;
+  font-size: 50px;
+}
+
+
+.container{
+  font-family: 'Lato', sans-serif;
+  font-weight: 100;
+  color: $dark-grey;
+}

@@ -2,6 +2,7 @@
  * CSS code specific to home page
  * (margin/padding adjustments)
  * ------------------------------------- */
+
 .wrapper{
   min-height: 100vh;
   margin: 0;
@@ -12,6 +13,14 @@
   font-family: Lato, Helvetica, sans-serif;
 }
 
+
+body {
+  background: #43C6AC; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #43C6AC , #191654); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #43C6AC , #191654); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+
 .line_1, .line_2{
   background-image: url(calendar.svg);
   background-size: 20px;
@@ -19,6 +28,7 @@
   background-position: 11px 18px;
   padding-left: 50px;
 }
+
 
 .line_3{
   background-image: url(departure.svg);
