@@ -1,7 +1,7 @@
 .noUi-target .range-label {
   background-color: transparent !important;
   top: -40px !important;
-  color: $blue-ocean !important;
+  color: grey !important;
   font-size: 30px !important;
   span{
     color: $blue-ocean !important;
@@ -13,21 +13,26 @@
 }
 
 .range-label span{
-  color: $blue-ocean !important;
+  color: white !important;
   font-size: 30px !important;
   opacity: 100 !important;
 }
 
-
+.noUi-horizontal {
+    width: 350px;
+    height:8px;
+}
 .noUI-base{
 }
 
 
 .noUi-connect{
-
+background-color: $blue-ocean;
 }
 
-
+.noUi-connect[disabled], [disabled] .noUi-connect {
+  background: $blue-ocean;
+}
 .noUi-origin{
 
 }
