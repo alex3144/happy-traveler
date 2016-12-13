@@ -10,9 +10,81 @@
   font-size: 50px;
 }
 
+.text-center-month {
+  text-align:center;
+  padding:20px;
+}
+
 
 .container{
   font-family: 'Lato', sans-serif;
-  font-weight: 100;
+  font-weight: 150;
   color: $dark-grey;
+}
+
+
+.time_flight {
+}
+
+.background-date {
+  background-color:#F2F4F7 !important;
+  color:grey;
+}
+
+.datecontainer {
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.date_range_graph_field{
+  display:flex;
+  align-items: center;
+}
+
+.flex-container-result {
+  display:flex;
+  align-items: center;
+  justify-content:space-around;
+}
+
+.flight_price p {
+  background-color:#17BEBB;
+  border-radius: 3px;
+  color:white;
+  font-size:15px;
+  padding:10px 5px;
+}
+
+
+.center {
+  text-align:center;
+}
+
+.slider-date {
+  padding:20px;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.start_flight_duration, .return_flight_duration {
+  width: 100px;
+  p {
+    margin:0;
+  }
+  i {
+    margin-right: 5px;
+  }
+}
+
+
+.container-flex-icone {
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.time-detail {
+  flex: 0 0 60%
 }
