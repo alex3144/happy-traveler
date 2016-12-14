@@ -5,6 +5,27 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,900);
 @import url(https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600);
 
+$header-font: "Raleway", "Helvetica", "sans-serif";
+$base-font : "Lato", "Helvetica", "sans-serif";
+$title-font: "Lato", "Helvetica", "sans-serif";
+$main-font: "Lato", "Helvetica", "sans-serif";
+$serif-font: 'Crimson Text', serif;
+
+
+// Font-size and line-height
+$base-size: 16px;
+$base-height: 1.4;
+
+
+// Local fonts (uncomment following lines)
+// @font-face {
+//   font-family: "Font Name";
+//   src: font-url('FontFile.eot');
+//   src: font-url('FontFile.eot?#iefix') format('embedded-opentype'),
+//        font-url('FontFile.woff') format('woff'),
+//        font-url('FontFile.ttf') format('truetype')
+// }
+// $my-font: "Font Name";
 
 $header-font: Raleway, Helvetica, sans-serif;
 $title-font: Lato, Helvetica, sans-serif;
@@ -15,6 +36,7 @@ $base-font : Lato, Helvetica, sans-serif;
 
 $base-size: 16px;
 $base-height: 1.4;
+
 
 /* -------------------------------------
  * Colors
