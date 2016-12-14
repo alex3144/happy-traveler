@@ -148,17 +148,18 @@ class GetFlightsService
             depart_company: trip["Carriers"].find { |h| h['Id'] == depart_company_id.join.to_i }["Code"],
             depart_OriginStation: trip["Places"].find { |h| h['Id'] == depart_OriginStation_id }["Code"],
             depart_DestinationStation: trip["Places"].find { |h| h['Id'] == depart_DestinationStation_id }["Code"],
-            depart_segments_number: depart_segments_id.size,
+            depart_segments_number: depart_segments_id.size - 1,
             return_date: trip["Legs"].find { |h| h['Id'] == return_flight_id }["Departure"],
             return_date_arrival: trip["Legs"].find { |h| h['Id'] == return_flight_id }["Arrival"],
             return_trip_duration: Time.at((trip["Legs"].find { |h| h['Id'] == return_flight_id }["Duration"])*60).utc.strftime("%Hh%M"),
             return_company: trip["Carriers"].find { |h| h['Id'] == return_company_id.join.to_i }["Code"],
             return_OriginStation: trip["Places"].find { |h| h['Id'] == return_OriginStation_id }["Code"],
             return_DestinationStation: trip["Places"].find { |h| h['Id'] == return_DestinationStation_id }["Code"],
-            return_segments_number: return_segments_id.size,
+            return_segments_number: return_segments_id.size - 1,
             deep_link_url: trip["Itineraries"][0]["PricingOptions"][0]["DeeplinkUrl"]
           }
       end
+      raise
     sorted_trips = trips.sort_by { |trip| trip[:price] }
     if sorted_trips.size > 10
       first_ten_trips = sorted_trips[0..9]
