@@ -6,19 +6,15 @@
 @import "font-awesome";
 @import "jquery-ui";
 
-// Your CSS
-@import "layout/index";
-@import "components/index";
-@import "pages/index";
-@import "vendor/index";
-@import "components/card";
-@import "components/banner";
-@import "components/inline_search_bar";
-@import "components/customized_NoUiSlider";
-
 // Materialize
 @import "materialize/components/color";
 @import "materialize";
 
 @import "materialize/extras/nouislider";
+
+// Your CSS
+@import "layout/index";
+@import "components/index";
+@import "pages/index";
+@import "vendor/index";
 
