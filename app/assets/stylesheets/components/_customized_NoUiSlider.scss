@@ -4,10 +4,10 @@
   color: grey !important;
   font-size: 30px !important;
   span{
-    color: $blue-ocean !important;
-    font-size: 30px !important;
+    color: grey !important;
+    font-size: 23px !important;
     opacity: 100 !important;
-    left: -10px !important;
+    left: -8px !important;
     top: 0px !important;
   }
 }
@@ -28,6 +28,8 @@
 
 .noUi-connect{
 background-color: $blue-ocean;
+height: 5px;
+top: 5px;
 }
 
 .noUi-connect[disabled], [disabled] .noUi-connect {
@@ -39,6 +41,11 @@ background-color: $blue-ocean;
 
 .noUi-target{
 
+}
+
+.noUi-background {
+  height: 5px;
+  top: 5px;
 }
 
 // .noUi-target  This class is added to the element you call  .noUiSlider() on.
