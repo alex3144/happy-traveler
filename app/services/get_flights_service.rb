@@ -159,7 +159,6 @@ class GetFlightsService
             deep_link_url: trip["Itineraries"][0]["PricingOptions"][0]["DeeplinkUrl"]
           }
       end
-      raise
     sorted_trips = trips.sort_by { |trip| trip[:price] }
     if sorted_trips.size > 10
       first_ten_trips = sorted_trips[0..9]
