@@ -84,10 +84,11 @@
   display:block;
   align-content: flex-start;
   padding:5px;
-  background-color:$background-silver-grey;
+  /*background-color:#FCFCFD;
+  border-radius: 5px;
+  border: solid 1px #323E42;*/
   p{
     margin: 1px;
-
   }
 }
 
@@ -99,23 +100,33 @@
   text-align:center;
 }
 
+.trip_table_head .fa{
+  font-size: 30px;
+  padding-bottom: 5px;
+}
+
 .flight_row{
   display:flex;
   justify-content: space-between;
   align-items: center;
   margin: 5px  5px;
-  border-left: 1px solid;
 }
 
 
 .time{
-  flex:0 0 85px;
+  flex:0 0 90px;
   margin-left:3px;
   flex-wrap: wrap;
-  p{
-    padding: 7px;
-  }
 }
+
+.date{
+  font-size:12px;
+}
+
+.hour{
+  font-weight: regular;
+  color: #0072BB;
+;}
 
 .place{
   flex:0 0 135px;
@@ -124,7 +135,6 @@
   p{
     padding: 5px;
   }
-
 }
 
 .company{
@@ -146,6 +156,18 @@
   text-align:center;
 
 }
+
+.stopover_nb{
+  font-size:14px;
+  color:$light-grey;
+}
+
+.bouton_voir{
+  display: flex;
+  justify-content: flex-end;
+  width:100%;
+}
+
 
 
 

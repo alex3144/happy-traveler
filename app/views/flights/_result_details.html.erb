@@ -1,14 +1,17 @@
-<h3 class="title_flight">Vol aller:</h3>
-<div class="flight_card">
-  <div class="one_trip_table">
+<h3 class="title_flight">Vol aller</h3>
+<div class="collection flight_card">
+  <div class="collection-item one_trip_table">
     <div class="trip_table_head">
       <div class="time"><i class="fa fa-calendar" aria-hidden="true"></i></div>
       <div class="place"><i class="fa fa-globe" aria-hidden="true"></i></div>
-      <div class="company">Airline</div>
+      <div class="company"><i class="fa fa-ticket" aria-hidden="true"></i></div>
     </div>
     <div class="flight_row">
       <div class="time">
-        <p class="take_off_time"><%=result_details[:depart_flights].first.departure_datetime.to_date.strftime("%A, %b %d") %></p>
+        <div class="take_off_time">
+          <p class="date"><%=result_details[:depart_flights].first.departure_datetime.to_date.strftime("%A, %b %d") %></p>
+          <p class="hour">12H30</p>
+        </div>
       </div>
       <div class="place">
         <p class="take_off_place"><%=result_details[:depart_flights].first.departure_airport%></p>
@@ -19,7 +22,10 @@
     </div>
     <div class="flight_row">
       <div class="time">
-        <p class= "landing_time">Mardi 14 février - 17H30 TODO</p>
+        <div class= "landing_time">
+          <p class="date">Mardi 14 février</p>
+          <p class="hour"> 14h30</p>
+        </div>
       </div>
       <div class="place">
         <p class="landing_place">Denpasar - DPS TO DO </p>
@@ -29,23 +35,25 @@
       </div>
     </div>
     <div class="stopover_nb">
-      <p style="text-align: right">Nb d'escales : To do API</p>
+      <p style="text-align: right">Nombre d'escales : <span style="color:#0072BB">3</span></p>
     </div>
   </div>
 </div>
 
-<h3 class="title_flight">Vol retour:</h3>
-<div class="flight_card">
-  <div class="one_trip_table">
+<h3 class="title_flight">Vol retour</h3>
+<div class=" collection flight_card">
+  <div class="collection-item one_trip_table">
     <div class="trip_table_head">
       <div class="time"><i class="fa fa-calendar" aria-hidden="true"></i></div>
       <div class="place"><i class="fa fa-globe" aria-hidden="true"></i></div>
-      <div class="company">Airline</div>
-      <div class="stopover_nb"><i class="fa fa-clock-o" aria-hidden="true"></i></div>
+      <div class="company"><i class="fa fa-ticket" aria-hidden="true"></i></div>
     </div>
     <div class="flight_row">
       <div class="time">
-        <p class="take_off_time"><%=result_details[:return_flights].first.departure_datetime.to_date.strftime("%A, %b %d") %></p>
+        <div class="take_off_time">
+          <p class="date"><%=result_details[:return_flights].first.departure_datetime.to_date.strftime("%A, %b %d") %></p>
+          <p class="hour">13H20</p>
+        </div>
       </div>
       <div class="place">
         <p class="take_off_place"><%=result_details[:return_flights].first.departure_airport%></p>
@@ -56,7 +64,10 @@
     </div>
     <div class="flight_row">
       <div class="time">
-        <p class="landing_time"> TO DO</p>
+        <div class="landing_time">
+          <p class="date">Mardi 14 février</p>
+          <p class="hour"> 14h30</p>
+        </div>
       </div>
       <div class="place">
         <p class="landing_place">To Do</p>
@@ -66,7 +77,7 @@
       </div>
     </div>
     <div class="stopover_nb">
-      <p style="text-align: right">Nb d'escales : To do API</p>
+      <p style="text-align: right">Nombre d'escales : <span style="color:#0072BB">3</span></p>
     </div>
   </div>
 </div>
