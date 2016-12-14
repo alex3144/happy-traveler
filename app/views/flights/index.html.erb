@@ -11,7 +11,7 @@
           <h5><%= @trip_periode%></h5>
           </div>
             <% @trips_results.each_with_index do |trip, index|%>
-              <div class="collection card-left ">
+              <div class="collection card-left " data-trip_index="<%= index %>">
                 <div class="collection-item background-date">
                   <div class="datecontainer">
                     <div class="depart-date"> <%= trip[:depart_date].to_date.strftime('%A %e')%> </div>
@@ -20,7 +20,7 @@
                   </div>
                 </div>
                 <div class="slider-date">
-                  <div  data-trip_index="<%= index %>">
+                  <div >
                     <div class="date_range_graph_field">
                       <div class="date_range_graph">
                         <div class="date_representation_sliders" data-departure_date_day="<%= trip[:depart_date].to_date.strftime('%e').to_i %>" data-departure_date_month="<%= trip[:depart_date].to_date.strftime('%m') %>" data-arrival_date_day="<%= trip[:return_date].to_date.strftime('%e').to_i %>">
@@ -92,28 +92,27 @@
         this.setAttribute('disabled', true);
       });
 
+      $('.background-date').first().addClass('select');
+
       // Flight results
-      var trips_results_details = [];
+      window.trips_results_details = [];
       <% @trips_results.each_with_index do |result_details, index| %>
-        var result_details = "<%= j render 'result_details', result_details: result_details %>"
-        trips_results_details[<%= index %>] = result_details
+        var result_details = "<%= j render 'result_details', result_details: result_details %>";
+        window.trips_results_details[<%= index %>] = result_details;
       <% end %>
 
       // Register click on card result
       $('.card-left').click(function(){
         $('.background-date').removeClass('select');
         $(this).find(".background-date").addClass('select');
-
         // Detect the index
         var index = $(this).data('trip_index');
-        var result_details_div = trips_results_details[index];
+        var result_details_div = window.trips_results_details[index];
+
         $('#results_details_container').html(result_details_div);
-      })
+      });
 
-
-
-
-    })
+    });
   </script>
 <% end %>
 
