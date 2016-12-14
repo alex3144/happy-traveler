@@ -56,6 +56,10 @@
   padding:10px 10px;
 }
 
+.row .result-list {
+  height: auto;
+  padding: 0;
+}
 
 .center {
   text-align:center;
@@ -89,3 +93,20 @@
   flex: 0 0 60%
 }
 
+.presentation_title-result{
+  background-color: $dark-blue;
+  display: flex;
+  border-radius: 5px 5px 0 0;
+  height: 80px;
+  justify-content: center;
+  align-items: center;
+  color:white;
+  margin-bottom: 10px;
+}
+
+
+.select{
+  background-color:#17BEBB;
+  cursor: pointer;
+  color:white;
+}

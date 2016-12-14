@@ -6,12 +6,12 @@
   </div>
   <div class="row">
     <div class="results_wrapper col s12">
-      <div class="presentation_title">
-        <h5><%= @trip_periode%></h5>
-      </div>
-      <div class="results_lists col s6">
-        <% @trips_results.each_with_index do |trip, index|%>
-          <div class="collection">
+      <div class="results_lists col s6 result-list">
+        <div class="presentation_title-result">
+          <h5><%= @trip_periode%></h5>
+          </div>
+            <% @trips_results.each_with_index do |trip, index|%>
+              <div class="collection card-left ">
                 <div class="collection-item background-date">
                   <div class="datecontainer">
                     <div class="depart-date"> <%= trip[:depart_date].to_date.strftime('%A %e')%> </div>
@@ -100,10 +100,9 @@
       <% end %>
 
       // Register click on card result
-      $('.collection').click(function(){
-
-        $('.collection').removeClass('selected');
-        $(this).toggleClass('selected');
+      $('.card-left').click(function(){
+        $('.background-date').removeClass('select');
+        $(this).find("background-date").addClass('select');
 
         // Detect the index
         var index = $(this).data('trip_index');

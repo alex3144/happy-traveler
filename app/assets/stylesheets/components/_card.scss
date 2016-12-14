@@ -8,7 +8,6 @@
 }
 .results_lists{
   height: 85vh;
-  overflow-y: scroll;
   padding: 20px;
   margin: 0 0.75rem;
   border-radius: 5px;
@@ -26,11 +25,6 @@
   background-color: $background-light-grey;
   border-radius: 5px;
   cursor: pointer;
-}
-
-.card_result.selected{
-  background-color: #E3696E;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .date_range_graph_fie{
@@ -99,59 +93,4 @@
   margin: 5px 5px;
   text-align:center;
 }
-
-.flight_row{
-  display:flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 5px  5px;
-  border-left: 1px solid;
-}
-
-
-.time{
-  flex:0 0 77px;
-  margin-left:3px;
-}
-
-.place{
-  flex:0 0 135px;
-  text-align: center;
-}
-
-.company{
-  flex:0 0 68px;
-  text-align: center;
-}
-
-.duration{
-  flex: 0 0 56px;
-  text-align: center;
-}
-
-.stopover_row{
-  display:flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 5px 5px;
-  border-left-style: dashed;
-}
-
-.stopover_draw{
-  flex:1 0 auto;
-  margin-left:3px;
-  text-align: center;
-}
-
-.stopover_duration{
-  flex:0 0 56px;
-  text-align:center;
-
-}
-
-
-
-
-
-
 
