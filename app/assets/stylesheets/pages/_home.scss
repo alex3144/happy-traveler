@@ -25,7 +25,7 @@
   display:flex;
   justify-content: center;
   .waiting_message{
-    background-image: url(pilot.svg);
+    background-image: asset-url("pilot.svg");
     background-size: 60px;
     background-repeat: no-repeat;
     background-position: 11px center;
@@ -70,7 +70,7 @@
       display: flex;
       align-items: center;
       .circle_icon_1{
-        background-image: url(circle_shuffle.svg);
+        background-image: asset-url("circle_shuffle.svg");
         background-size: 40px;
         background-repeat: no-repeat;
         background-position: 11px center;
@@ -83,7 +83,7 @@
         }
       }
       .circle_icon_2{
-        background-image: url(circle_calendar.svg);
+        background-image: asset-url("circle_calendar.svg");
         background-size: 40px;
         background-repeat: no-repeat;
         background-position: 11px center;
@@ -96,7 +96,7 @@
         }
       }
       .circle_icon_3{
-        background-image: url(circle_money.svg);
+        background-image: asset-url("circle_money.svg");
         background-size: 40px;
         background-repeat: no-repeat;
         background-position: 11px center;
@@ -143,7 +143,7 @@
   align-items: center;
   margin: 0 auto;
   color:white;
-  background-image: url(logo.svg);
+  background-image: asset-url("logo.svg");
   background-size: 60px;
   background-repeat: no-repeat;
   background-position: 70px center;
@@ -152,7 +152,7 @@
 }
 
 .line_1, .line_2{
-  background-image: url(calendar.svg);
+  background-image: asset-url("calendar.svg");
   background-size: 20px;
   background-repeat: no-repeat;
   background-position: 11px 18px;
@@ -161,7 +161,7 @@
 
 
 .line_3{
-  background-image: url(departure.svg);
+  background-image: asset-url("departure.svg");
   background-size: 20px;
   background-repeat: no-repeat;
   background-position: 11px 18px;
@@ -169,7 +169,7 @@
 }
 
 .line_4{
-  background-image: url(arrival.svg);
+  background-image: asset-url("arrival.svg");
   background-size: 20px;
   background-repeat: no-repeat;
   background-position: 11px 18px;
