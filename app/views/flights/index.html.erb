@@ -6,17 +6,17 @@
   </div>
   <div class="row">
     <div class="results_wrapper col s12">
+      <div class="presentation_title">
+        <h5><%= @trip_periode%></h5>
+      </div>
       <div class="results_lists col s6">
-        <div class="text-center-month">
-          <h5><%= @trip_periode%></h5>
-        </div>
         <% @trips_results.each_with_index do |trip, index|%>
           <div class="collection">
                 <div class="collection-item background-date">
                   <div class="datecontainer">
-                    <div class="depart-date"> trip[:depart_date].to_date.strftime('%A %e') </div>
+                    <div class="depart-date"> <%= trip[:depart_date].to_date.strftime('%A %e')%> </div>
                     <div><i class="fa fa-arrows-h fa-2x" aria-hidden="true"></i></div>
-                     <div class="retour-date"> trip[:return_date].to_date.strftime('%A %e') </div>
+                     <div class="retour-date"> <%= trip[:return_date].to_date.strftime('%A %e') %> </div>
                   </div>
                 </div>
                 <div class="slider-date">
@@ -30,7 +30,7 @@
                   </div>
                 </div>
                 <div class="flex-container-result">
-                    <p>Temps de voyage</p>
+                    <p style="color:grey">Temps de voyage:</p>
                     <div class="time_flight">
                       <div class="start_flight_duration">
                         <div class="container-flex-icone">
@@ -45,12 +45,12 @@
                           <div>
                             <i class="fa fa-plane" aria-hidden="true"></i>Retour:
                           </div>
-                          <%= trip[:return_trip_duration]%> €
+                          <%= trip[:return_trip_duration]%>
                         </div>
                       </div>
                     </div>
                   <div class="flight_price">
-                    <p>$<%= trip[:price]%></p>
+                    <p><%=trip[:price]%>€</p>
                   </div>
                 </div>
             </div>
@@ -100,9 +100,9 @@
       <% end %>
 
       // Register click on card result
-      $('.card_result').click(function(){
+      $('.collection').click(function(){
 
-        $('.card_result').removeClass('selected');
+        $('.collection').removeClass('selected');
         $(this).toggleClass('selected');
 
         // Detect the index
