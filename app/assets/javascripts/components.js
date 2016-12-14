@@ -41,6 +41,7 @@
 
   $(".line_5").click(function() {
     $(".frame").removeClass("hidden_animation");
+    $(".waiting_message").removeClass("hidden");
     $(".cloud").addClass("hidden_animation");
     $(".container").addClass("hidden");
   });

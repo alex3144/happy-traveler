@@ -13,6 +13,27 @@
   font-family: Lato, Helvetica, sans-serif;
 }
 
+.waiting_message{
+  color: white;
+  text-rendering: optimizeLegibility;
+  font-size: 40px;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  z-index: 100;
+  width:100%;
+  display:flex;
+  justify-content: center;
+  .waiting_message{
+    background-image: url(pilot.svg);
+    background-size: 60px;
+    background-repeat: no-repeat;
+    background-position: 11px center;
+    padding-left: 90px;
+    width: 520px;
+  }
+}
+
 .arrow_0_target{
   min-height: 600px;
 }
@@ -32,7 +53,7 @@
   border-radius: 5px 5px 0 0;
   height: 80px;
   justify-content: center;
-  align-items: center
+  align-items: center;
 }
 
 .presentation_content{
@@ -55,9 +76,11 @@
         background-position: 11px center;
         padding-left: 70px;
         height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        color: $hover-blue;
+        span{
+          font-size: 15px;
+          color: $dark-blue;
+        }
       }
       .circle_icon_2{
         background-image: url(circle_calendar.svg);
@@ -66,9 +89,11 @@
         background-position: 11px center;
         padding-left: 70px;
         height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        color: $hover-blue;
+        span{
+          font-size: 15px;
+          color: $dark-blue;
+        }
       }
       .circle_icon_3{
         background-image: url(circle_money.svg);
@@ -77,9 +102,11 @@
         background-position: 11px center;
         padding-left: 70px;
         height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        color: $hover-blue;
+        span{
+          font-size: 15px;
+          color: $dark-blue;
+        }
       }
     };
   };
@@ -89,6 +116,7 @@
   height: 80px;
   background-color: $background-light-grey;
   border-radius: 0 0 5px 5px;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -104,7 +132,6 @@
   margin: 0.5rem 0 1rem 0;
   border-radius: 5px;
   background-color: #fff;
-  cursor: pointer;
 }
 
 .title_div{
@@ -189,7 +216,12 @@
   top : 0px;
 }
 
+.browser-default{
+  cursor: pointer;
+}
+
 .arrow_1_target{
+  cursor: pointer;
   .collection-item:hover{
     background-color: $hover-blue;
     color: white;
@@ -198,6 +230,7 @@
 
 
 .arrow_2_target{
+  cursor: pointer;
   .card_month:hover{
     background-color: $hover-blue;
     color: white;
@@ -205,6 +238,7 @@
 }
 
 .arrow_3_target{
+  cursor: pointer;
   .city_departure:hover{
     background-color: $hover-blue;
     color: white;
@@ -212,6 +246,7 @@
 }
 
 .arrow_4_target{
+  cursor: pointer;
   .city_destination:hover{
     background-color: $hover-blue;
     color: white;
@@ -224,7 +259,6 @@
   margin: 0.5rem 0 1rem 0;
   border-radius: 5px;
   background-color: #fff;
-  cursor: pointer;
 }
 
 .search_card_left{
