@@ -9,10 +9,19 @@
     <div class="flight_row">
       <div class="time">
         <p class="take_off_time"><%=result_details[:depart_flights].first.departure_datetime.to_date.strftime("%A, %b %d") %></p>
-        <p class= "landing_time">Mardi 14 février - 17H30 TODO</p>
       </div>
       <div class="place">
         <p class="take_off_place"><%=result_details[:depart_flights].first.departure_airport%></p>
+      </div>
+      <div class="company">
+        <img src="<%=result_details[:depart_flights].first.marketing_airline%>" alt="company" style="max-width:58px">
+      </div>
+    </div>
+    <div class="flight_row">
+      <div class="time">
+        <p class= "landing_time">Mardi 14 février - 17H30 TODO</p>
+      </div>
+      <div class="place">
         <p class="landing_place">Denpasar - DPS TO DO </p>
       </div>
       <div class="company">
@@ -37,16 +46,27 @@
     <div class="flight_row">
       <div class="time">
         <p class="take_off_time"><%=result_details[:return_flights].first.departure_datetime.to_date.strftime("%A, %b %d") %></p>
-        <p class="landing_time"> TO DO</p>
       </div>
       <div class="place">
         <p class="take_off_place"><%=result_details[:return_flights].first.departure_airport%></p>
+      </div>
+      <div class="company">
+        <img src=" <%=result_details[:return_flights].first.marketing_airline%>" alt="company" style="max-width: 58px">
+      </div>
+    </div>
+    <div class="flight_row">
+      <div class="time">
+        <p class="landing_time"> TO DO</p>
+      </div>
+      <div class="place">
         <p class="landing_place">To Do</p>
       </div>
       <div class="company">
         <img src=" <%=result_details[:return_flights].first.marketing_airline%>" alt="company" style="max-width: 58px">
       </div>
-      <div class="stopover_nb">To do API</div>
+    </div>
+    <div class="stopover_nb">
+      <p style="text-align: right">Nb d'escales : To do API</p>
     </div>
   </div>
 </div>
