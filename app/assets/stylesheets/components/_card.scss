@@ -8,7 +8,6 @@
 }
 .results_lists{
   height: 85vh;
-  overflow-y: scroll;
   padding: 20px;
   margin: 0 0.75rem;
   border-radius: 5px;
@@ -26,12 +25,7 @@
   cursor: pointer;
 }
 
-.card_result.selected{
-  background-color: #E3696E;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-.date_range_graph_field{
+.date_range_graph_fie{
   display:flex;
   align-items: center;
   justify-content: space-around;
@@ -164,8 +158,8 @@
 
 .bouton_voir{
   display: flex;
-  justify-content: flex-end;
-  width:100%;
+  justify-content:  center;
+  width:100%
 }
 
 

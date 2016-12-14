@@ -9,33 +9,31 @@
     <div class="flight_row">
       <div class="time">
         <div class="take_off_time">
-          <p class="date"><%=result_details[:depart_flights].first.departure_datetime.to_date.strftime("%A, %b %d") %></p>
-          <p class="hour">12H30</p>
+          <p class="date"><%=result_details[:depart_date].to_date.strftime("%A, %b %d") %></p>
+
         </div>
       </div>
       <div class="place">
-        <p class="take_off_place"><%=result_details[:depart_flights].first.departure_airport%></p>
+        <p class="take_off_place"><%=result_details[:depart_OriginStation]%></p>
       </div>
       <div class="company">
-        <img src="<%=result_details[:depart_flights].first.marketing_airline%>" alt="company" style="max-width:58px">
+        <img src="<%= "http://0.omg.io/wego/image/upload/c_fit,w_200,h_70/flights/airlines_rectangular/" + result_details[:depart_company] + ".png"
+%>" alt="company" style="max-width:58px">
       </div>
     </div>
     <div class="flight_row">
       <div class="time">
         <div class= "landing_time">
-          <p class="date">Mardi 14 février</p>
-          <p class="hour"> 14h30</p>
+          <p class="date"><%=result_details[:depart_date_arrival].to_date.strftime("%A, %b %d") %></p>
+
         </div>
       </div>
       <div class="place">
-        <p class="landing_place">Denpasar - DPS TO DO </p>
-      </div>
-      <div class="company">
-        <img src="<%=result_details[:depart_flights].first.marketing_airline%>" alt="company" style="max-width:58px">
+        <p class="landing_place"><%=result_details[:depart_DestinationStation]%></p>
       </div>
     </div>
     <div class="stopover_nb">
-      <p style="text-align: right">Nombre d'escales : <span style="color:#0072BB">3</span></p>
+      <p style="text-align: right">Nombre d'escales: <%= result_details[:depart_segments_number]%> <span style="color:#0072BB">3</span></p>
     </div>
   </div>
 </div>
@@ -51,34 +49,34 @@
     <div class="flight_row">
       <div class="time">
         <div class="take_off_time">
-          <p class="date"><%=result_details[:return_flights].first.departure_datetime.to_date.strftime("%A, %b %d") %></p>
-          <p class="hour">13H20</p>
+          <p class="date"><%=result_details[:return_date].to_date.strftime("%A, %b %d") %></p>
+
         </div>
       </div>
       <div class="place">
-        <p class="take_off_place"><%=result_details[:return_flights].first.departure_airport%></p>
+        <p class="take_off_place"><%=result_details[:return_OriginStation]%></p>
       </div>
       <div class="company">
-        <img src=" <%=result_details[:return_flights].first.marketing_airline%>" alt="company" style="max-width: 58px">
+        <img src="<%= "http://0.omg.io/wego/image/upload/c_fit,w_200,h_70/flights/airlines_rectangular/" + result_details[:return_company] + ".png"%>" alt="company" style="max-width:58px">
       </div>
     </div>
     <div class="flight_row">
       <div class="time">
         <div class="landing_time">
-          <p class="date">Mardi 14 février</p>
-          <p class="hour"> 14h30</p>
+          <p class="date"><%=result_details[:return_date_arrival].to_date.strftime("%A, %b %d") %></p>
+
         </div>
       </div>
       <div class="place">
-        <p class="landing_place">To Do</p>
-      </div>
-      <div class="company">
-        <img src=" <%=result_details[:return_flights].first.marketing_airline%>" alt="company" style="max-width: 58px">
+        <p class="landing_place"><%=result_details[:return_DestinationStation]%></p>
       </div>
     </div>
     <div class="stopover_nb">
-      <p style="text-align: right">Nombre d'escales : <span style="color:#0072BB">3</span></p>
+      <p style="text-align: right">Nombre d'escales: <%= result_details[:return_segments_number]%> <span style="color:#0072BB">3</span></p>
     </div>
   </div>
+</div>
+<div class="bouton_voir">
+  <%= link_to "+ d'infos", result_details[:deep_link_url], target: "blank", class: "btn-large waves-effect waves-light" %>
 </div>
 

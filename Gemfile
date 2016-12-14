@@ -18,6 +18,7 @@ gem 'autoprefixer-rails'
 gem 'materialize-sass'
 gem 'sacs_ruby'
 gem 'oj'
+gem 'skyscanner', :require => 'skyscanner'
 
 group :development, :test do
   gem 'binding_of_caller'
