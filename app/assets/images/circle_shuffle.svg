@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="164px" height="164px" viewBox="0 0 164 164" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41.1 (35376) - http://www.bohemiancoding.com/sketch -->
+    <title>Slice 1</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <circle id="Oval" fill="#282F44" cx="82" cy="82" r="82"></circle>
+        <g id="Group" transform="translate(32.000000, 46.000000)" fill="#FFFFFF">
+            <path d="M87,52 L87,58 L83,58 C77.657,58 73.548,53.891 70.828,51.172 L58.484,38.828 L52.828,44.484 L65.172,56.828 C68.377,60.034 74.343,66 83,66 L87,66 L87,72 L94.8,66 L100,62 L94.8,58 L87,52 Z" id="Shape"></path>
+            <path d="M29.172,20.828 L41.516,33.172 L47.172,27.516 L34.828,15.172 C31.623,11.966 25.657,6 17,6 L0,6 L0,14 L17,14 C22.343,14 26.452,18.109 29.172,20.828 Z" id="Shape"></path>
+            <path d="M87,14 L87,20 L94.8,14 L100,10 L94.8,6 L87,0 L87,6 L83,6 C74.343,6 68.377,11.966 65.172,15.172 L29.172,51.172 C26.452,53.891 22.343,58 17,58 L0,58 L0,66 L17,66 C25.657,66 31.623,60.034 34.828,56.828 L70.828,20.828 C73.548,18.109 77.657,14 83,14 L87,14 Z" id="Shape"></path>
+        </g>
+    </g>
+</svg>

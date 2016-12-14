@@ -164,7 +164,6 @@ class GetFlightsService
       first_ten_trips = sorted_trips[0..9]
     else
       sorted_trips
-      raise
     end
   end
 end
