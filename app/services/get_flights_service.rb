@@ -26,7 +26,7 @@ class GetFlightsService
 
 
     Skyscanner::Connection.url  = "partners.api.skyscanner.net/apiservices"
-    Skyscanner::Connection.apikey = "prtl6749387986743898559646983194"
+    Skyscanner::Connection.apikey = ENV["SKYSCANNER_API_KEY"]
     Skyscanner::Connection.response_format = "ruby"
 
 
