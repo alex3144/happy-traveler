@@ -71,7 +71,7 @@ class GetFlightsService
   # global_trips_results
   # end
     i = 1
-    while return_date <= end_period_date && i < 19
+    while return_date <= end_period_date && i < 18
       departure_date_to_string = (departure_date).to_s
       return_date_to_string = (return_date).to_s
       api_results = Skyscanner::Connection.pricing({
