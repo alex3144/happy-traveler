@@ -10,7 +10,7 @@ class FlightsController < ApplicationController
     # User Params
     params[:periode] = params[:periode].downcase.capitalize
     start_period = date_params(params[:periode])[1]
-    end_periode = date_params(params[:periode])[0]
+    end_period = date_params(params[:periode])[0]
     lengthofstay = params[:duration].join
 
     @periode = ["Choisissez votre période","Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Août","Septembre","Octobre","Novembre","Décembre"]
@@ -21,13 +21,12 @@ class FlightsController < ApplicationController
       origin: params[:departure].match(/\((.*)\)/)[1],
       destination: params[:destination].match(/\((.*)\)/)[1],
       lengthofstay: params[:duration].join,
-      end_period: end_periode.to_date,
+      end_period: end_period.to_date,
       departuredate: start_period,
       returndate: (start_period.to_date + lengthofstay.to_i).to_s
     }
 
     @trips_results = ::GetFlightsService.new(search_params).call
-
   end
 
   def autocomplete
