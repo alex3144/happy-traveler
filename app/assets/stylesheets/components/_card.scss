@@ -15,8 +15,6 @@
   background-color: #fff;
 }
 
-
-
 .card_result{
   display:flex;
   justify-content: space-between;
@@ -72,7 +70,8 @@
   height: 85vh;
   overflow-y: scroll;
   h3{
-    font-size: 25px;
+    text-align: left;
+    font-size: 15px;
   }
 }
 
@@ -85,7 +84,7 @@
   display:block;
   align-content: flex-start;
   padding:5px;
-  background-color:#E3696E;
+  background-color:$background-silver-grey;
   p{
     margin: 1px;
 
@@ -110,38 +109,37 @@
 
 
 .time{
-  flex:0 0 77px;
+  flex:0 0 85px;
   margin-left:3px;
+  flex-wrap: wrap;
+  p{
+    padding: 7px;
+  }
 }
 
 .place{
   flex:0 0 135px;
   text-align: center;
+  flex-wrap: wrap;
+  p{
+    padding: 5px;
+  }
+
 }
 
 .company{
   flex:0 0 68px;
   text-align: center;
+  flex-wrap: wrap;
 }
 
-.duration{
+.stopover_nb{
   flex: 0 0 56px;
   text-align: center;
+  flex-wrap: wrap;
 }
 
-.stopover_row{
-  display:flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 5px 5px;
-  border-left-style: dashed;
-}
 
-.stopover_draw{
-  flex:1 0 auto;
-  margin-left:3px;
-  text-align: center;
-}
 
 .stopover_duration{
   flex:0 0 56px;
