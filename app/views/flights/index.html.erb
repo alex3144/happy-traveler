@@ -14,9 +14,9 @@
               <div class="collection card-left " data-trip_index="<%= index %>">
                 <div class="collection-item background-date">
                   <div class="datecontainer">
-                    <div class="depart-date"> <%= trip[:depart_date].to_date.strftime('%A %e')%> </div>
+                    <div class="depart-date"> <%= l(trip[:depart_date].to_date, format: '%A %e').capitalize %> </div>
                     <div><i class="fa fa-arrows-h fa-2x" aria-hidden="true"></i></div>
-                     <div class="retour-date"> <%= trip[:return_date].to_date.strftime('%A %e') %> </div>
+                     <div class="retour-date"> <%= l(trip[:return_date].to_date, format: '%A %e').capitalize %> </div>
                   </div>
                 </div>
                 <div class="slider-date">
