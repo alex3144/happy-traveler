@@ -45,12 +45,23 @@
 .background-date {
   background-color:#F2F4F7 !important;
   color:grey;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content:space-around;
 }
 
 .datecontainer {
   display:flex;
-  justify-content: space-around;
   align-items: center;
+}
+
+.depart-date{
+  margin: 0px 10px;
+}
+
+.retour-date{
+  margin: 0px 10px;
 }
 
 .date_range_graph_field{
@@ -75,6 +86,7 @@
 .row .result-list {
   height: auto;
   padding: 0;
+  height: 85vh;
 }
 
 .center {
@@ -117,7 +129,6 @@
   justify-content: center;
   align-items: center;
   color:white;
-  margin-bottom: 10px;
 }
 
 
