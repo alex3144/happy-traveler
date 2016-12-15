@@ -95,7 +95,7 @@
 
 .trip_table_head{
   display:flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   margin: 5px 5px;
   text-align:center;
@@ -149,6 +149,7 @@
   flex: 0 0 56px;
   text-align: center;
   flex-wrap: wrap;
+  padding-left: 10px;
 }
 
 
