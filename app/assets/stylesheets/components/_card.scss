@@ -1,3 +1,7 @@
+.sub_results_details{
+  width: 250px;
+}
+
 .title_flight{
   text-align: center;
 }
@@ -62,7 +66,7 @@
 .flight_details_container{
   border-radius: 5px;
   background-color: #fff;
-  height: 660px;
+  height: 670px;
   h3{
     text-align: left;
     font-size: 15px;
@@ -138,6 +142,7 @@
   flex:0 0 68px;
   text-align: center;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 .stopover_nb{
