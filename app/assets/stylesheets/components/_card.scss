@@ -62,7 +62,7 @@
 .flight_details_container{
   border-radius: 5px;
   background-color: #fff;
-  height: 85vh;
+  height: 660px;
   h3{
     text-align: left;
     font-size: 15px;
@@ -71,6 +71,9 @@
 
 .flight_card{
   background-color:$background-silver-grey;
+  &.collection{
+    margin: 0.5rem 0 0.7rem 0 !important;
+  }
 
 }
 
