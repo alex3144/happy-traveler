@@ -30,6 +30,18 @@
 .time_flight {
 }
 
+.fa-depart-plane {
+  -ms-transform: rotate(45deg); /* IE 9 */
+  -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+  transform: rotate(45deg);
+}
+
+.fa-return-plane {
+  -ms-transform: rotate(225deg); /* IE 9 */
+  -webkit-transform: rotate(225deg); /* Chrome, Safari, Opera */
+  transform: rotate(225deg);
+}
+
 .background-date {
   background-color:#F2F4F7 !important;
   color:grey;

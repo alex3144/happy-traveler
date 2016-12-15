@@ -9,8 +9,8 @@
     <div class="flight_row">
       <div class="time">
         <div class="take_off_time">
-          <p class="date"><%=result_details[:depart_date].to_date.strftime("%A, %b %d") %></p>
-
+          <p class="date"><%=result_details[:depart_date].to_time.strftime("%a, %b %d") %></p>
+          <p class="date"><%=result_details[:depart_date].to_time.strftime("%H:%M") %></p>
         </div>
       </div>
       <div class="place">
@@ -24,8 +24,8 @@
     <div class="flight_row">
       <div class="time">
         <div class= "landing_time">
-          <p class="date"><%=result_details[:depart_date_arrival].to_date.strftime("%A, %b %d") %></p>
-
+          <p class="date"><%=result_details[:depart_date_arrival].to_time.strftime("%a, %b %d") %></p>
+          <p class="date"><%=result_details[:depart_date_arrival].to_time.strftime("%H:%M") %></p>
         </div>
       </div>
       <div class="place">
@@ -33,7 +33,7 @@
       </div>
     </div>
     <div class="stopover_nb">
-      <p style="text-align: right">Nombre d'escales: <%= result_details[:depart_segments_number]%> <span style="color:#0072BB">3</span></p>
+      <p style="text-align: right">Nombre d'escales: <%= result_details[:depart_segments_number]%> <span style="color:#0072BB"></span></p>
     </div>
   </div>
 </div>
@@ -49,8 +49,8 @@
     <div class="flight_row">
       <div class="time">
         <div class="take_off_time">
-          <p class="date"><%=result_details[:return_date].to_date.strftime("%A, %b %d") %></p>
-
+          <p class="date"><%=result_details[:return_date].to_time.strftime("%a, %b %d") %></p>
+          <p class="date"><%=result_details[:return_date].to_time.strftime("%H:%M") %></p>
         </div>
       </div>
       <div class="place">
@@ -63,8 +63,8 @@
     <div class="flight_row">
       <div class="time">
         <div class="landing_time">
-          <p class="date"><%=result_details[:return_date_arrival].to_date.strftime("%A, %b %d") %></p>
-
+          <p class="date"><%=result_details[:return_date_arrival].to_time.strftime("%a, %b %d") %></p>
+          <p class="date"><%=result_details[:return_date_arrival].to_time.strftime("%H:%M") %></p>
         </div>
       </div>
       <div class="place">
@@ -72,7 +72,7 @@
       </div>
     </div>
     <div class="stopover_nb">
-      <p style="text-align: right">Nombre d'escales: <%= result_details[:return_segments_number]%> <span style="color:#0072BB">3</span></p>
+      <p style="text-align: right">Nombre d'escales: <%= result_details[:return_segments_number]%> <span style="color:#0072BB"></span></p>
     </div>
   </div>
 </div>

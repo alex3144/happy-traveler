@@ -18,6 +18,21 @@ class GetFlightsService
 
   end
 
+  def api_call
+    Skyscanner::Connection.pricing({
+      :country => "FR",
+      :currency => "EUR",
+      :locale => "fr-FR",
+      :originPlace => @search_params[:origin] + "-sky",
+      :destinationPlace => @search_params[:destination] + "-sky",
+      # :stops => 1,
+      :duration => 1440,
+      :pagesize => 1,
+      :outboundPartialDate => @departure_date,
+      :inboundPartialDate => @return_date
+    })
+  end
+
   def request_flight_result
 
     # api_results = []
@@ -26,7 +41,7 @@ class GetFlightsService
 
 
     Skyscanner::Connection.url  = "partners.api.skyscanner.net/apiservices"
-    Skyscanner::Connection.apikey = ENV["SKYSCANNER_API_KEY"]
+    Skyscanner::Connection.apikey = "prtl6749387986743898559646983194"
     Skyscanner::Connection.response_format = "ruby"
 
 
@@ -34,70 +49,36 @@ class GetFlightsService
     raw_results = []
     trips = []
 
-    departure_date = @search_params[:departuredate].to_date
-    return_date = @search_params[:returndate].to_date
+    @departure_date = @search_params[:departuredate].to_date
+    @return_date = @search_params[:returndate].to_date
     end_period_date =  @search_params[:end_period]
 
-    # departure_date = ("2016-12-13").to_date
-    # return_date = ("2016-12-20").to_date
-    # end_period_date =  ("2017-01-13").to_date
 
-    # while returndate <= end_period_date
-    #   departuredate_to_string = (departure_date).to_s
-    #   returndate_to_string = (returndate).to_s
-    #   api_results = SacsRuby::API::InstaFlightsSearch.get(
-    #     origin: @search_params[:origin],
-    #     destination:  @search_params[:destination],
-    #     departuredate:  departuredate_to_string,
-    #     returndate:  returndate_to_string,
-    #     limit: '5',
-    #     sortby: "totalfare",
-    #     order: "asc",
-    #     excludedcarriers: exclude_airline_companies.join(",")
-    #     # sortby2: "totalfare",
-    #     # order2: "asc"
-    #   )
-
-    #   exclude_airline_companies << api_results["PricedItineraries"][0]["AirItinerary"]["OriginDestinationOptions"]["OriginDestinationOption"][0]["FlightSegment"][0]["MarketingAirline"]["Code"]
-
-    #   api_results["PricedItineraries"].each do |trip|
-    #     global_trips_results << trip
-    #   end
-
-    #   departure_date += 1
-    #   returndate += 1
-    # end
-    # raise
-  # global_trips_results
-  # end
     i = 1
-    while return_date <= end_period_date && i < 18
-      departure_date_to_string = (departure_date).to_s
-      return_date_to_string = (return_date).to_s
-      api_results = Skyscanner::Connection.pricing({
-        :country => "FR",
-        :currency => "EUR",
-        :locale => "fr-FR",
-        :originPlace => @search_params[:origin] + "-sky",
-        :destinationPlace => @search_params[:destination] + "-sky",
-        # :stops => 1,
-        :duration => 1440,
-        # :pagesize => 1,
-        :outboundPartialDate => departure_date,
-        :inboundPartialDate => return_date
-      })
+    while @return_date <= end_period_date && i < 18
+      departure_date_to_string = (@departure_date).to_s
+      return_date_to_string = (@return_date).to_s
+      api_results = api_call
+      while api_results[:body] == "{\"ValidationErrors\":[{\"Message\":\"Rate limit has been exceeded: 20 PerMinute for PricingSession\"}]}"
+        sleep(20)
+        api_results = api_call
+      end
 
-      if api_results["Itineraries"] != [] && api_results["Legs"] != []
+      if api_results["Itineraries"] != [] || api_results["Legs"] != []
         raw_results << api_results
       end
-      departure_date += 1
-      return_date += 1
+      @departure_date += 1
+      @return_date += 1
       i += 1
     end
 
       raw_results.each do |trip|
-          depart_flight_id = trip["Itineraries"][0]["OutboundLegId"]
-          return_flight_id = trip["Itineraries"][0]["InboundLegId"]
+          trip["Itineraries"].each do |itinerary|
+            depart_flight_id = itinerary["OutboundLegId"]
+            return_flight_id = itinerary["InboundLegId"]
+            trip_price = itinerary["PricingOptions"][0]["Price"]
+            trip_link = itinerary["PricingOptions"][0]["DeeplinkUrl"]
+
           depart_company_id = trip["Legs"].find { |h| h['Id'] == depart_flight_id }["Carriers"]
           depart_OriginStation_id = trip["Legs"].find { |h| h['Id'] == depart_flight_id }["OriginStation"]
           depart_DestinationStation_id = trip["Legs"].find { |h| h['Id'] == depart_flight_id }["DestinationStation"]
@@ -141,23 +122,24 @@ class GetFlightsService
           # end
 
           trips << {
-            price: (trip["Itineraries"][0]["PricingOptions"][0]["Price"]).round(2),
+            price: (trip_price).round(2),
             depart_date: trip["Legs"].find { |h| h['Id'] == depart_flight_id }["Departure"],
             depart_date_arrival: trip["Legs"].find { |h| h['Id'] == depart_flight_id }["Arrival"],
             depart_trip_duration: Time.at((trip["Legs"].find { |h| h['Id'] == depart_flight_id }["Duration"])*60).utc.strftime("%Hh%M"),
-            depart_company: trip["Carriers"].find { |h| h['Id'] == depart_company_id.join.to_i }["Code"],
+            depart_company: trip["Carriers"].find { |h| h['Id'] == depart_company_id.first }["Code"],
             depart_OriginStation: trip["Places"].find { |h| h['Id'] == depart_OriginStation_id }["Code"],
             depart_DestinationStation: trip["Places"].find { |h| h['Id'] == depart_DestinationStation_id }["Code"],
             depart_segments_number: depart_segments_id.size - 1,
             return_date: trip["Legs"].find { |h| h['Id'] == return_flight_id }["Departure"],
             return_date_arrival: trip["Legs"].find { |h| h['Id'] == return_flight_id }["Arrival"],
             return_trip_duration: Time.at((trip["Legs"].find { |h| h['Id'] == return_flight_id }["Duration"])*60).utc.strftime("%Hh%M"),
-            return_company: trip["Carriers"].find { |h| h['Id'] == return_company_id.join.to_i }["Code"],
+            return_company: trip["Carriers"].find { |h| h['Id'] == return_company_id.first }["Code"],
             return_OriginStation: trip["Places"].find { |h| h['Id'] == return_OriginStation_id }["Code"],
             return_DestinationStation: trip["Places"].find { |h| h['Id'] == return_DestinationStation_id }["Code"],
             return_segments_number: return_segments_id.size - 1,
-            deep_link_url: trip["Itineraries"][0]["PricingOptions"][0]["DeeplinkUrl"]
+            deep_link_url: trip_link
           }
+        end
       end
     sorted_trips = trips.sort_by { |trip| trip[:price] }
     if sorted_trips.size > 10
@@ -170,6 +152,38 @@ end
 
 
 
+# departure_date = ("2016-12-13").to_date
+    # return_date = ("2016-12-20").to_date
+    # end_period_date =  ("2017-01-13").to_date
+
+    # while returndate <= end_period_date
+    #   departuredate_to_string = (departure_date).to_s
+    #   returndate_to_string = (returndate).to_s
+    #   api_results = SacsRuby::API::InstaFlightsSearch.get(
+    #     origin: @search_params[:origin],
+    #     destination:  @search_params[:destination],
+    #     departuredate:  departuredate_to_string,
+    #     returndate:  returndate_to_string,
+    #     limit: '5',
+    #     sortby: "totalfare",
+    #     order: "asc",
+    #     excludedcarriers: exclude_airline_companies.join(",")
+    #     # sortby2: "totalfare",
+    #     # order2: "asc"
+    #   )
+
+    #   exclude_airline_companies << api_results["PricedItineraries"][0]["AirItinerary"]["OriginDestinationOptions"]["OriginDestinationOption"][0]["FlightSegment"][0]["MarketingAirline"]["Code"]
+
+    #   api_results["PricedItineraries"].each do |trip|
+    #     global_trips_results << trip
+    #   end
+
+    #   departure_date += 1
+    #   returndate += 1
+    # end
+    # raise
+  # global_trips_results
+  # end
 
 
 
