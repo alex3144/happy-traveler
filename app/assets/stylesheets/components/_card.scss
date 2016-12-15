@@ -8,11 +8,10 @@
 }
 .results_lists{
   height: 85vh;
-  padding: 20px;
-  margin: 0 0.75rem;
   border-radius: 5px;
   background-color: #fff;
 }
+
 
 .card_result{
   display:flex;
@@ -56,9 +55,11 @@
   justify-content: space-around;
 }
 
+#results_details_container{
+  padding: 5px 10px;
+}
+
 .flight_details_container{
-  padding: 20px 5px;
-  margin: 0 0.75rem;
   border-radius: 5px;
   background-color: #fff;
   height: 85vh;
