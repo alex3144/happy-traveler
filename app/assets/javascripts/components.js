@@ -71,8 +71,8 @@
   });
 
   $(".card-left").click(function() {
-    $(".flight_details_container").fadeOut("fast");
-    $(".flight_details_container").fadeIn("fast");
+    $(".flight_details_container").fadeOut();
+    $(".flight_details_container").fadeIn();
   });
 
 });
