@@ -83,7 +83,6 @@
 
 .one_trip_table{
   display:block;
-  align-content: flex-start;
   padding:5px;
   /*background-color:#FCFCFD;
   border-radius: 5px;
@@ -94,8 +93,6 @@
 }
 
 .trip_table_head{
-  display:flex;
-  justify-content: space-around;
   align-items: center;
   margin: 5px 5px;
   text-align:center;
@@ -107,21 +104,18 @@
 }
 
 .flight_row{
-  display:flex;
-  justify-content: space-between;
   align-items: center;
   margin: 5px  5px;
 }
 
 
 .time{
-  flex:0 0 90px;
   margin-left:3px;
-  flex-wrap: wrap;
 }
 
 .date{
-  font-size:12px;
+  font-size:13px;
+  text-align: center;
 }
 
 .hour{
@@ -132,7 +126,6 @@
 .place{
   flex:0 0 135px;
   text-align: center;
-  flex-wrap: wrap;
   p{
     padding: 5px;
   }
@@ -141,14 +134,11 @@
 .company{
   flex:0 0 68px;
   text-align: center;
-  flex-wrap: wrap;
   align-items: center;
 }
 
 .stopover_nb{
-  flex: 0 0 56px;
   text-align: center;
-  flex-wrap: wrap;
   padding-left: 10px;
 }
 
