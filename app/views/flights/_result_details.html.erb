@@ -1,43 +1,56 @@
 <h3 class="title_flight">Vol aller</h3>
 <div class="collection flight_card">
   <div class="collection-item one_trip_table">
-    <div class="trip_table_head">
-      <div class="time"><i class="fa fa-calendar" aria-hidden="true"></i></div>
-      <div class="place"><i class="fa fa-globe" aria-hidden="true"></i></div>
-      <div class="company"><i class="fa fa-ticket" aria-hidden="true"></i></div>
+    <div class="row trip_table_head">
+      <div class="col m4 text-center">
+        <div class="time"><i class="fa fa-calendar" aria-hidden="true"></i></div>
+      </div>
+      <div class="col m4">
+        <div class="place"><i class="fa fa-globe" aria-hidden="true"></i></div>
+      </div>
+      <div class="col m4">
+        <div class="company"><i class="fa fa-ticket" aria-hidden="true"></i></div>
+      </div>
     </div>
-    <div style=" display: flex; justify-content: space-around;">
-      <div class="sub_results_details">
-        <div class="flight_row">
-          <div class="time">
-            <div class="take_off_time">
-              <p class="date"><%=l(result_details[:depart_date].to_time, format: "%a, %d %b").capitalize %></p>
-              <p class="date"><%=result_details[:depart_date].to_time.strftime("%H:%M") %></p>
-            </div>
-          </div>
-          <div class="place">
-            <p class="take_off_place"><%=result_details[:depart_OriginStation]%></p>
-          </div>
-        </div>
-        <div class="flight_row">
-          <div class="time">
-            <div class= "landing_time">
-              <p class="date"><%= l(result_details[:depart_date_arrival].to_time, format: "%a, %d %b").capitalize %></p>
-              <p class="date"><%=result_details[:depart_date_arrival].to_time.strftime("%H:%M") %></p>
-            </div>
-          </div>
-          <div class="place">
-            <p class="landing_place"><%=result_details[:depart_DestinationStation]%></p>
+    <div class="row">
+      <div class="col m4 s6">
+        <div class="time">
+          <div class="take_off_time">
+            <p class="date"><%=l(result_details[:depart_date].to_time, format: "%a, %d %b").capitalize %></p>
+            <p class="date"><%=result_details[:depart_date].to_time.strftime("%H:%M") %></p>
           </div>
         </div>
       </div>
-      <div class="company">
-        <img src="<%= "http://0.omg.io/wego/image/upload/c_fit,w_200,h_70/flights/airlines_rectangular/" + result_details[:depart_company] + ".png"
-  %>" alt="company" style="max-width:58px; padding-top: 40px;">
+      <div class="col m4 s6">
+        <div class="place">
+          <p class="take_off_place"><%=result_details[:depart_OriginStation]%></p>
+        </div>
+      </div>
+      <div class="col m4 s12">
+        <div class="company">
+          <img src="<%= "http://0.omg.io/wego/image/upload/c_fit,w_200,h_70/flights/airlines_rectangular/" + result_details[:depart_company] + ".png"%>" alt="company" style="max-width:100%;  padding-top: 15px;">
+        </div>
+      </div>
+      <div class="col m4 s6">
+        <div class="time">
+          <div class= "landing_time">
+            <p class="date"><%= l(result_details[:depart_date_arrival].to_time, format: "%a, %d %b").capitalize %></p>
+            <p class="date"><%=result_details[:depart_date_arrival].to_time.strftime("%H:%M") %></p>
+          </div>
+        </div>
+      </div>
+      <div class="col m4 s6">
+        <div class="place">
+          <p class="landing_place"><%=result_details[:depart_DestinationStation]%></p>
+        </div>
       </div>
     </div>
-    <div class="stopover_nb">
-      <p style="text-align: right">Nombre d'escales: <%= result_details[:depart_segments_number]%> <span style="color:#0072BB"></span></p>
+    <div class="row">
+      <div class="col m12">
+        <div class="stopover_nb">
+          <p style="text-align: right">Nombre d'escales: <%= result_details[:depart_segments_number]%> <span style="color:#0072BB"></span></p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -45,42 +58,56 @@
 <h3 class="title_flight">Vol retour</h3>
 <div class=" collection flight_card">
   <div class="collection-item one_trip_table">
-    <div class="trip_table_head">
-      <div class="time"><i class="fa fa-calendar" aria-hidden="true"></i></div>
-      <div class="place"><i class="fa fa-globe" aria-hidden="true"></i></div>
-      <div class="company"><i class="fa fa-ticket" aria-hidden="true"></i></div>
+    <div class="row trip_table_head">
+      <div class="col m4">
+        <div class="time"><i class="fa fa-calendar" aria-hidden="true"></i></div>
+      </div>
+      <div class="col m4">
+        <div class="place"><i class="fa fa-globe" aria-hidden="true"></i></div>
+      </div>
+      <div class="col m4">
+        <div class="company"><i class="fa fa-ticket" aria-hidden="true"></i></div>
+      </div>
     </div>
-    <div style=" display: flex; justify-content: space-around;">
-      <div class="sub_results_details">
-        <div class="flight_row">
-          <div class="time">
-            <div class="take_off_time">
-              <p class="date"><%= l(result_details[:return_date].to_time, format: "%a, %d %b").capitalize %></p>
-              <p class="date"><%=result_details[:return_date].to_time.strftime("%H:%M") %></p>
-            </div>
-          </div>
-          <div class="place">
-            <p class="take_off_place"><%=result_details[:return_OriginStation]%></p>
-          </div>
-        </div>
-        <div class="flight_row">
-          <div class="time">
-            <div class="landing_time">
-              <p class="date"><%= l(result_details[:return_date_arrival].to_time, format: "%a, %d %b").capitalize %></p>
-              <p class="date"><%=result_details[:return_date_arrival].to_time.strftime("%H:%M") %></p>
-            </div>
-          </div>
-          <div class="place">
-            <p class="landing_place"><%=result_details[:return_DestinationStation]%></p>
+    <div class="row">
+      <div class="col m4">
+        <div class="time">
+          <div class="take_off_time">
+            <p class="date"><%= l(result_details[:return_date].to_time, format: "%a, %d %b").capitalize %></p>
+            <p class="date"><%=result_details[:return_date].to_time.strftime("%H:%M") %></p>
           </div>
         </div>
       </div>
-      <div class="company">
-        <img src="<%= "http://0.omg.io/wego/image/upload/c_fit,w_200,h_70/flights/airlines_rectangular/" + result_details[:return_company] + ".png"%>" alt="company" style="max-width:58px; padding-top: 40px;">
+      <div class="col m4">
+        <div class="place">
+          <p class="take_off_place"><%=result_details[:return_OriginStation]%></p>
+        </div>
+      </div>
+      <div class="col m4">
+        <div class="company">
+          <img src="<%= "http://0.omg.io/wego/image/upload/c_fit,w_200,h_70/flights/airlines_rectangular/" + result_details[:return_company] + ".png"%>" alt="company" style="max-width:100%; padding-top: 15px;">
+        </div>
+      </div>
+      <div class="col m4">
+        <div class="time">
+          <div class="landing_time">
+            <p class="date"><%= l(result_details[:return_date_arrival].to_time, format: "%a, %d %b").capitalize %></p>
+            <p class="date"><%=result_details[:return_date_arrival].to_time.strftime("%H:%M") %></p>
+          </div>
+        </div>
+      </div>
+      <div class="col m4">
+        <div class="place">
+          <p class="landing_place"><%=result_details[:return_DestinationStation]%></p>
+        </div>
       </div>
     </div>
-    <div class="stopover_nb">
-      <p style="text-align: right">Nombre d'escales: <%= result_details[:return_segments_number]%> <span style="color:#0072BB"></span></p>
+    <div class="row">
+      <div class="col m12">
+        <div class="stopover_nb">
+          <p style="text-align: right">Nombre d'escales: <%= result_details[:return_segments_number]%> <span style="color:#0072BB"></span></p>
+        </div>
+      </div>
     </div>
   </div>
 </div>

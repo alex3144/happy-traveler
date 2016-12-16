@@ -69,6 +69,7 @@ class GetFlightsService
       end
 
       if api_results[:body] == "{\"ValidationErrors\":[{\"Message\":\"Rate limit has been exceeded: 20 PerMinute for PricingSession\"}]}"
+        sleep(7)
         raw_results = fake_data
         break
       end
