@@ -59,20 +59,20 @@ class GetFlightsService
       departure_date_to_string = (@departure_date).to_s
       return_date_to_string = (@return_date).to_s
       api_results = api_call
-      # while api_results[:body] == "{\"ValidationErrors\":[{\"Message\":\"Rate limit has been exceeded: 20 PerMinute for PricingSession\"}]}"
-      #   sleep(20)
-      #   api_results = api_call
-      # end
+      while api_results[:body] == "{\"ValidationErrors\":[{\"Message\":\"Rate limit has been exceeded: 20 PerMinute for PricingSession\"}]}"
+        sleep(20)
+        api_results = api_call
+      end
 
       if api_results["Itineraries"] != [] || api_results["Legs"] != []
         raw_results << api_results
       end
 
-      if api_results[:body] == "{\"ValidationErrors\":[{\"Message\":\"Rate limit has been exceeded: 20 PerMinute for PricingSession\"}]}"
-        sleep(7)
-        raw_results = fake_data
-        break
-      end
+      # if api_results[:body] == "{\"ValidationErrors\":[{\"Message\":\"Rate limit has been exceeded: 20 PerMinute for PricingSession\"}]}"
+      #   sleep(7)
+      #   raw_results = fake_data
+      #   break
+      # end
 
       @departure_date += 1
       @return_date += 1
